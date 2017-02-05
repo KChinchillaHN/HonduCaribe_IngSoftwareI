@@ -1,4 +1,4 @@
-**Gentelella On Rails**
+**HonduCaribe**
 ---------------------------
 Rails 4 implementation of the awesome [Gentelella](https://github.com/puikinsh/gentelella) Bootstrap admin template.
 
