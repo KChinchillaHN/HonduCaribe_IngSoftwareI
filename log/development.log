@@ -1,0 +1,18 @@
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:34:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (8.4ms)
+  Rendered partials/_sidenav.html.erb (33.7ms)
+  Rendered partials/_topnav.html.erb (12.0ms)
+  Rendered partials/_footer.html.erb (0.6ms)
+Completed 200 OK in 27946ms (Views: 27908.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddEmployeeId (20170205234430)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (9.7ms)[0m  [1mALTER TABLE "employees" ADD "work_id" integer[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170205234430"]]
+  [1m[36m (5.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (3.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
