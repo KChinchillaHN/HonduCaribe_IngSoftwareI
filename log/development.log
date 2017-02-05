@@ -524,3 +524,251 @@ Processing by PlainpageController#index as HTML
   Rendered partials/_topnav.html.erb (8.5ms)
   Rendered partials/_footer.html.erb (0.1ms)
 Completed 200 OK in 1136ms (Views: 1135.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:42:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (4.9ms)
+  Rendered partials/_sidenav.html.erb (17.3ms)
+  Rendered partials/_topnav.html.erb (8.0ms)
+  Rendered partials/_footer.html.erb (0.4ms)
+Completed 200 OK in 5163ms (Views: 5132.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:43:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.6ms)
+  Rendered partials/_topnav.html.erb (6.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 851ms (Views: 850.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:49:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (17.5ms)
+  Rendered partials/_topnav.html.erb (7.3ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 871ms (Views: 870.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:51:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.0ms)
+  Rendered partials/_topnav.html.erb (5.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 834ms (Views: 833.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:53:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.4ms)
+  Rendered partials/_topnav.html.erb (6.2ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 849ms (Views: 848.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/form.html" for 10.0.2.2 at 2017-02-05 22:53:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/form.html"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (38.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (69.4ms)
+
+
+Started GET "/form.html" for 10.0.2.2 at 2017-02-05 22:53:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/form.html"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:56:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (17.4ms)
+  Rendered partials/_topnav.html.erb (5.3ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 849ms (Views: 848.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:58:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (15.4ms)
+  Rendered partials/_topnav.html.erb (7.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 855ms (Views: 854.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:59:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (14.0ms)
+  Rendered partials/_topnav.html.erb (6.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 860ms (Views: 858.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:59:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (12.9ms)
+  Rendered partials/_topnav.html.erb (8.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 850ms (Views: 849.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 22:59:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.2ms)
+  Rendered partials/_topnav.html.erb (6.0ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 842ms (Views: 841.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:01:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.5ms)
+  Rendered partials/_topnav.html.erb (8.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 852ms (Views: 851.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:01:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (12.3ms)
+  Rendered partials/_topnav.html.erb (5.0ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 811ms (Views: 810.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:03:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.5ms)
+  Rendered partials/_topnav.html.erb (5.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 844ms (Views: 843.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:04:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (15.5ms)
+  Rendered partials/_topnav.html.erb (9.2ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 874ms (Views: 873.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:04:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (14.2ms)
+  Rendered partials/_topnav.html.erb (11.2ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 853ms (Views: 852.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:04:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (15.3ms)
+  Rendered partials/_topnav.html.erb (8.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 856ms (Views: 855.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-05 23:05:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PlainpageController#index as HTML
+  Rendered plainpage/index.html.erb within layouts/application (0.1ms)
+  Rendered partials/_sidenav.html.erb (13.8ms)
+  Rendered partials/_topnav.html.erb (6.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 828ms (Views: 826.9ms | ActiveRecord: 0.0ms)
