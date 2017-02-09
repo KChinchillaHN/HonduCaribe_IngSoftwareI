@@ -382,3 +382,310 @@ AbstractController::ActionNotFound (The action 'create' could not be found for S
 
 
   Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/login.html" for 10.0.2.2 at 2017-02-08 22:59:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (74.3ms)
+  Rendered partials/_sidenav.html.erb (23.2ms)
+  Rendered partials/_topnav.html.erb (8.6ms)
+  Rendered partials/_footer.html.erb (1.7ms)
+Completed 200 OK in 5864ms (Views: 5828.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:00:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (2.1ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (30.3ms)
+  Rendered partials/_sidenav.html.erb (26.9ms)
+  Rendered partials/_topnav.html.erb (12.6ms)
+  Rendered partials/_footer.html.erb (0.5ms)
+Completed 200 OK in 1758ms (Views: 1702.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:00:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.4ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (4.3ms)
+  Rendered partials/_sidenav.html.erb (22.5ms)
+  Rendered partials/_topnav.html.erb (9.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1654ms (Views: 1650.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-08 23:01:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  Rendered partials/_errors.html.erb (80.7ms)
+  Rendered employees/_form.html.erb (62.4ms)
+  Rendered employees/new.html.erb within layouts/application (306.2ms)
+  Rendered partials/_sidenav.html.erb (27.6ms)
+  Rendered partials/_topnav.html.erb (11.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 2111ms (Views: 2109.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-08 23:01:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (2.5ms)
+  Rendered employees/new.html.erb within layouts/application (108.1ms)
+  Rendered partials/_sidenav.html.erb (24.1ms)
+  Rendered partials/_topnav.html.erb (10.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1705ms (Views: 1702.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:02:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (2.9ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (5.0ms)
+  Rendered partials/_sidenav.html.erb (24.0ms)
+  Rendered partials/_topnav.html.erb (11.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1610ms (Views: 1606.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-08 23:02:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (2.8ms)
+  Rendered employees/new.html.erb within layouts/application (132.8ms)
+  Rendered partials/_sidenav.html.erb (25.3ms)
+  Rendered partials/_topnav.html.erb (10.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1791ms (Views: 1789.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:02:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.2ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (3.8ms)
+  Rendered partials/_sidenav.html.erb (24.0ms)
+  Rendered partials/_topnav.html.erb (13.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1617ms (Views: 1613.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-08 23:02:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (4.4ms)
+  Rendered employees/new.html.erb within layouts/application (139.7ms)
+  Rendered partials/_sidenav.html.erb (24.2ms)
+  Rendered partials/_topnav.html.erb (12.9ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1772ms (Views: 1771.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:03:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (3.6ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (5.4ms)
+  Rendered partials/_sidenav.html.erb (27.4ms)
+  Rendered partials/_topnav.html.erb (12.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1682ms (Views: 1677.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-08 23:03:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (6.7ms)
+  Rendered employees/new.html.erb within layouts/application (133.6ms)
+  Rendered partials/_sidenav.html.erb (27.0ms)
+  Rendered partials/_topnav.html.erb (13.0ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1773ms (Views: 1771.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/login.html" for 10.0.2.2 at 2017-02-08 23:04:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[36mEmployee Load (3.3ms)[0m  [1mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 74ms (ActiveRecord: 3.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=login):
+  app/controllers/employees_controller.rb:7:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (46.1ms)
+
+
+Started GET "/employees/login.html" for 10.0.2.2 at 2017-02-08 23:04:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[35mEmployee Load (9.0ms)[0m  SELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 12ms (ActiveRecord: 9.0ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=login):
+  app/controllers/employees_controller.rb:7:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/employees/login.html" for 10.0.2.2 at 2017-02-08 23:05:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[35mEmployee Load (4.0ms)[0m  SELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 150ms (ActiveRecord: 6.8ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=login):
+  app/controllers/employees_controller.rb:7:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.8ms)
+
+
+Started GET "/employees/login" for 10.0.2.2 at 2017-02-08 23:06:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[36mEmployee Load (5.6ms)[0m  [1mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 9ms (ActiveRecord: 5.6ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Employee with 'id'=login):
+  app/controllers/employees_controller.rb:7:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.1ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:06:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (2.5ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (28.0ms)
+  Rendered partials/_sidenav.html.erb (31.4ms)
+  Rendered partials/_topnav.html.erb (15.0ms)
+  Rendered partials/_footer.html.erb (0.8ms)
+Completed 200 OK in 8415ms (Views: 8411.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-08 23:08:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (2.7ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (4.6ms)
+  Rendered partials/_sidenav.html.erb (31.0ms)
+  Rendered partials/_topnav.html.erb (14.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1799ms (Views: 1795.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/login.html" for 10.0.2.2 at 2017-02-08 23:08:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (87.5ms)
+  Rendered partials/_sidenav.html.erb (26.0ms)
+  Rendered partials/_topnav.html.erb (11.2ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1567ms (Views: 1565.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/e_commerce.html" for 10.0.2.2 at 2017-02-08 23:09:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/e_commerce.html"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (66.4ms)
+
+
+Started GET "/e_commerce.html" for 10.0.2.2 at 2017-02-08 23:09:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/e_commerce.html"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:20:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.6ms)
