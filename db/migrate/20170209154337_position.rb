@@ -1,4 +1,4 @@
-class Rollback2 < ActiveRecord::Migration
+class Position < ActiveRecord::Migration
   def change
     add_column :employees, :position, :string
   end

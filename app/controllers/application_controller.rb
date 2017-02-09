@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:user_id] = user.id
-    redirect_to login_path(current_user)
+    redirect_to root_path
   end
 
   def logout
     reset_session
     redirect_to login_path
   end
-  
+
   def current_user
     if session[:user_id]
       @current_user = User.find(session[:user_id])

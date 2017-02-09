@@ -1,0 +1,51 @@
+<div style="float: center">
+  <div style="width: 790px; float: left">
+    <div class="form-group">
+    	<%= f.label :name, "Nombre" %>
+    	<%= f.text_field :name, class: "form-control", placeholder: "Su Nombre" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label :profession, "Profesion" %>
+    	<%= f.text_field :profession, class: "form-control", placeholder: "Profesion" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label :birth_at, "Fecha de Nacimiento" %>
+    	<%= f.date_field :birth_at, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label :birth_place, "Lugar de nacimiento" %>
+    	<%= f.text_field :birth_place, class: "form-control", placeholder: "birth_place" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label :date_admission, "Fecha de admision" %>
+    	<%= f.date_field :date_admission, class: "form-control" %>
+    </div>
+  </div>
+  <div style="width: 790px; float: right">
+    <div class="form-group">
+      <%= f.label :number_id, "Numero de Cedula" %>
+      <%= f.number_field :number_id, class: "form-control", placeholder: "Numero de Cedula" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label :base_belong, "Base a la que pertenece" %>
+    	<%= f.text_field :base_belong, class: "form-control", placeholder: "Base" %>
+    </div>
+    <div class="form-group">
+    	<%= f.label :civil_status, "Estado Civil: " %>
+    	<%= f.select :civil_status, Employee.civil_statuses, {}, class: "form-control"%>
+    </div>
+    <div class="form-group">
+    	<%= f.label :blood_type, "Tipo de Sangre " %>
+    	<%= f.select :blood_type, Employee.bloods, {}, class: "form-control"%>
+    </div>
+    <div class="form-group">
+    	<%= f.label :emergency_contact_name, "Contacto de emergencia" %>
+    	<%= f.text_field :emergency_contact_name, class: "form-control", placeholder: "Nombre De Contacto" %>
+    </div>
+</div>
+
+    <div class="form-group" style="padding-left: 400px; padding-right: 400px">
+      <%= f.label :emergency_contact_number, "Contacto de emergencia" %>
+      <%= f.number_field :emergency_contact_number, class: "form-control", placeholder: "Numero de Contacto" %>
+    </div>
+</div>
