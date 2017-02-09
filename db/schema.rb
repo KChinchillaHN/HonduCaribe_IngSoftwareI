@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205234430) do
+ActiveRecord::Schema.define(version: 20170209015408) do
+
+  create_table "educations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "level"
+    t.date     "year_start"
+    t.date     "year_end"
+    t.text     "specification"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -19,7 +29,6 @@ ActiveRecord::Schema.define(version: 20170205234430) do
     t.date     "birth_at"
     t.text     "birth_place"
     t.date     "date_admission"
-    t.string   "position"
     t.decimal  "salary"
     t.integer  "number_id"
     t.string   "base_belong"
@@ -31,6 +40,15 @@ ActiveRecord::Schema.define(version: 20170205234430) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "work_id"
+    t.string   "position"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "department"
+    t.text     "requierements"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +57,15 @@ ActiveRecord::Schema.define(version: 20170205234430) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "work_places", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.decimal  "years"
+    t.text     "reason_stop"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

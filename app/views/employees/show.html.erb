@@ -13,8 +13,8 @@
         <div class="x_panel" style="height:600px;">
           <div class="x_title">
             <h2 style="padding-top: 40px">
-              <span style="font-size:30px; padding-top:30px">Edgar Eleazar Contreras Umanzor, #475</span><br>
-              <span>Ing. Sistemas Computacionales • Gerente General • Ventas</span>
+              <span style="font-size:30px; padding-top:30px"><%= @employee.name %>, #<%=@employee.work_id %></span><br>
+              <span><%= @employee.profession%> • <%= @employee.position %> • <%= @employee.base_belong%></span>
             </h2>
             <div style="float: right; padding-right: 20px">
               <img src="http://pngimg.com/upload/face_PNG5660.png" height="150">
@@ -23,30 +23,27 @@
           </div>
           <div style="float: left; width: 600px; font-size: 20px; padding-left: 150px">
             <p>
-              Nacimiento: 05/05/1995, San Pedro Sula
+              Nacimiento: <%= @employee.birth_at %>, <%= @employee.birth_place %>
             </p>
             <p>
-              Numero de Identidad: 1804-1998-03605
+              Numero de Identidad: <%= @employee.number_id %>
             </p>
             <p>
-              Fecha de Contratacion: 09/25/2015
+              Fecha de Contratacion: <%= @employee.date_admission %>
             </p>
             <p>
-              Salario: Lps.150,000.00
+              Salario: Lps.<%= @employee.salary %>
             </p>
           </div>
           <div style="float: right; width: 600px; font-size: 20px">
             <p>
-              Nacimiento: 05/05/1995, San Pedro Sula
+              Direccion: <%= @employee.address %>
             </p>
             <p>
-              Numero de Identidad: 1804-1998-03605
+              Tipo de sangre: <%= @employee.blood_type %>
             </p>
             <p>
-              Fecha de Contratacion: 09/25/2015
-            </p>
-            <p>
-              Salario: Lps.150,000.00
+              Contacto de emergencia: <%= @employee.emergency_contact_name %>, Tel. <%= @employee.emergency_contact_number %>
             </p>
           </div>
         </div>

@@ -22,31 +22,36 @@
     <div class="row">
 
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel" style="height:600px;">
+        <div class="x_panel" style="height:600px; ">
           <div class="x_title">
             <h2>Listado de Empleados</h2>
             <div class="clearfix"></div>
           </div>
-          <table class="table table-hover" style="width:1000px; float: center">
-          	<thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
-          		<tr>
-          			<th>Codigo de Empleado</th>
-          			<th>Nombre</th>
-          			<th>Puesto</th>
-          			<th>Area</th>
-          		</tr>
-          	</thead>
-          	<tbody>
-          		<%- @employees.each do |f| %>
-          			<tr>
-          				<td><%= f.id%></td>
-          				<td><%= link_to f.name, employee_path(f) %></td>
-          				<td><%= f.position %></td>
-          				<td><%= f.base_belong %></td>
-          			</tr>
-          		<%- end %>
-          	</tbody>
-          </table>
+          <div style="padding-right: 500px">
+
+          </div>
+          <div style="width:1600px; float: center; border-left: 500px">
+            <table class="table table-hover">
+              <thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
+                <tr>
+                  <th>Codigo de Empleado</th>
+                  <th>Nombre</th>
+                  <th>Puesto</th>
+                  <th>Area</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%- @employees.each do |f| %>
+                  <tr>
+                    <td><%= f.id%></td>
+                    <td><%= link_to f.name, employee_path(f) %></td>
+                    <td><%= f.position %></td>
+                    <td><%= f.base_belong %></td>
+                  </tr>
+                <%- end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
