@@ -16,12 +16,6 @@
             <div class="clearfix"></div>
           </div>
 
-          <% if flash[:error] %>
-            <div class="alert alert-danger" role="alert">
-              <%= flash[:error] %>
-            </div>
-          <% end %>
-
           <%= form_for :session, url: login_path do |f| %>
           <div class="form-group">
             <%= f.label :email %>
@@ -37,7 +31,8 @@
               <span class="fa fa-sign-in"></span>
               Iniciar Sesion
             <% end %>
-          </div>
+          </div>        
+
         <% end %>
         </div>
       </div>
