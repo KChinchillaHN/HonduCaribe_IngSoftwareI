@@ -28,7 +28,7 @@
           </div>
           <%= render partial: "partials/errors", locals: { obj: @employee } %>
           <%= form_for @employee do |f| %>
-          	<%= render partial: "form", locals: {f: f} %>
+            <%= render partial: "form", locals: {f: f} %>
             <div style="padding-left: 770px" >
               <p>
                 <%= f.submit "Crear" , class: "btn btn-default"%> <br><br>
