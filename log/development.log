@@ -2720,3 +2720,108 @@ Processing by EmployeesController#index as HTML
   Rendered partials/_topnav.html.erb (17.1ms)
   Rendered partials/_footer.html.erb (0.1ms)
 Completed 200 OK in 1802ms (Views: 1793.1ms | ActiveRecord: 5.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (23.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (20.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/login" for 10.0.2.2 at 2017-02-22 05:37:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (102.4ms)
+  Rendered partials/_sidenav.html.erb (18.7ms)
+  Rendered partials/_topnav.html.erb (0.9ms)
+  Rendered partials/_footer.html.erb (0.4ms)
+Completed 200 OK in 9251ms (Views: 9209.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-02-22 05:38:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered partials/_sidenav.html.erb (14.9ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1363ms (Views: 1361.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-016c27e5749e5c5c3fd6c66ae0ddc4ba1224a8a857642b657aceaa15d0aa82f7.css?body=1" for 10.0.2.2 at 2017-02-22 05:38:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/login" for 10.0.2.2 at 2017-02-22 05:38:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ObmpyQyJogqFHPRlmaksIdxsYqVZp9d+nUxnNyi0SgIuM0wEnFc9al7RMbORnvV4birDfJ6Z6wr3f/h+9yn+EQ==", "session"=>{"email"=>"kevin@kevin", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[35mUser Load (2.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "kevin@kevin"]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 99ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-02-22 05:38:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered partials/_sidenav.html.erb (11.6ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1423ms (Views: 1422.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-02-22 05:38:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (9.9ms)
+  Rendered users/new.html.erb within layouts/application (94.1ms)
+  Rendered partials/_sidenav.html.erb (11.6ms)
+  Rendered partials/_topnav.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.6ms)
+Completed 200 OK in 1442ms (Views: 1432.6ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2017-02-22 05:38:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IL+HuPqX9+Bw7JF2tDPgmaInGE5Gwnm9dqctqGMoato3NWJ1aklogKshVKC8BDnAEGG5l4H8RckclLLhvLXeyQ==", "user"=>{"name"=>"kevin", "email"=>"kevin@kevin", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kevin@kevin' LIMIT 1
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "kevin"], ["email", "kevin@kevin"], ["password_digest", "$2a$10$lT5yx9cZfBawtFdHfCBNyONrwF3RQvaLqdrcHyxwSxd2fCiIKktcu"], ["created_at", "2017-02-22 05:38:35.855428"], ["updated_at", "2017-02-22 05:38:35.855428"]]
+  [1m[35m (76.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/login
+Completed 302 Found in 282ms (ActiveRecord: 82.9ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-02-22 05:38:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered partials/_sidenav.html.erb (14.7ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1375ms (Views: 1374.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.2.2 at 2017-02-22 05:38:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EmIN/QwVXOpmhGAJ+8M4omto9bK2KD9nm0wqyiWDdaAF6OgwnMvDir1Jpd/z9OH72S5Ua3EWAxPxf7WD+h7Bsw==", "session"=>{"email"=>"kevin@kevin", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[36mUser Load (12.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "kevin@kevin"]]
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/login.2
+Completed 302 Found in 154ms (ActiveRecord: 14.6ms)
+
+
+Started GET "/login.2" for 10.0.2.2 at 2017-02-22 05:38:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as 
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 2.0ms)
+
+NameError (undefined local variable or method `root' for #<SessionsController:0xcb48adc>):
+  app/controllers/sessions_controller.rb:6:in `new'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.8ms)
