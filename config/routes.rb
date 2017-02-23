@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :work_exps
     resources :habilitys
   end
+
+  resources :work_structures
   resources :users
   get 'test', to: "employees#test"
   get 'suprimir', to: "employees#suprimir"
@@ -39,7 +41,7 @@ Rails.application.routes.draw do
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get 'sold'-
   #     end
   #   end
 
