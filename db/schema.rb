@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223010354) do
+ActiveRecord::Schema.define(version: 20170223042620) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "employee_id"
   end
 
-  add_index "educations", ["employee_id"], name: "index_educations_on_employee_id"
+  add_index "educations", ["employee_id"], name: "index_educations_on_employee_id", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -54,9 +57,10 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.datetime "supression_date"
     t.string   "identity_number"
     t.integer  "position_id"
+    t.string   "avatar"
   end
 
-  add_index "employees", ["position_id"], name: "index_employees_on_position_id"
+  add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
 
   create_table "habilities", force: :cascade do |t|
     t.string   "hability"
@@ -65,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "employee_id"
   end
 
-  add_index "habilities", ["employee_id"], name: "index_habilities_on_employee_id"
+  add_index "habilities", ["employee_id"], name: "index_habilities_on_employee_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.text     "name_position"
@@ -74,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "work_structure_id"
   end
 
-  add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id"
+  add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -94,7 +98,7 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "employee_id"
   end
 
-  add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id"
+  add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id", using: :btree
 
   create_table "work_structures", force: :cascade do |t|
     t.string   "department"

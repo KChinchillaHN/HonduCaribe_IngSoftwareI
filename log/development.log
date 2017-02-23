@@ -5706,3 +5706,732 @@ Migrating to ReferencesTables (20170223010354)
             FROM sqlite_temp_master
             WHERE name='index_work_exps_on_employee_id' AND type='index'
 [0m
+  [1m[36m (12.3ms)[0m  [1mCREATE TABLE "educations" ("id" serial primary key, "school_name" character varying, "year_start" timestamp, "year_end" timestamp, "completed" boolean, "title_description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "employee_id" integer) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_educations_on_employee_id" ON "educations"  ("employee_id")
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "employees" ("id" serial primary key, "name" character varying, "profession" text, "birth_at" date, "birth_place" text, "date_admission" date, "salary" decimal, "base_belong" character varying, "civil_status" character varying, "address" text, "blood_type" character varying, "emergency_contact_name" character varying, "emergency_contact_number" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "work_id" integer, "last_work" character varying, "email" character varying, "RAP_code" character varying, "cellphone" integer, "bank_account" integer, "contract_type" character varying, "gender" character varying, "employee_status" boolean, "supression_motive" character varying, "supression_date" timestamp, "identity_number" character varying, "position_id" integer) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_employees_on_position_id" ON "employees"  ("position_id")
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "habilities" ("id" serial primary key, "hability" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "employee_id" integer) [0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_habilities_on_employee_id" ON "habilities"  ("employee_id")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "positions" ("id" serial primary key, "name_position" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "work_structure_id" integer) [0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_positions_on_work_structure_id" ON "positions"  ("work_structure_id")
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying, "name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "work_exps" ("id" serial primary key, "company_name" character varying, "year_start" timestamp, "year_end" timestamp, "position" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "employee_id" integer) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_work_exps_on_employee_id" ON "work_exps"  ("employee_id")[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "work_structures" ("id" serial primary key, "department" character varying, "area" character varying, "sub_area" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170223010354')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170205230514')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170205230530')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170205234430')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170209013757')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170209154337')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170222225041')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170222230942')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170222231137')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170222231221')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170222231327')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170222231531')[0m
+  [1m[35m (18.5ms)[0m  CREATE TABLE "educations" ("id" serial primary key, "school_name" character varying, "year_start" timestamp, "year_end" timestamp, "completed" boolean, "title_description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "employee_id" integer) 
+  [1m[36m (2.5ms)[0m  [1mCREATE  INDEX  "index_educations_on_employee_id" ON "educations"  ("employee_id")[0m
+  [1m[35m (4.1ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying, "profession" text, "birth_at" date, "birth_place" text, "date_admission" date, "salary" decimal, "base_belong" character varying, "civil_status" character varying, "address" text, "blood_type" character varying, "emergency_contact_name" character varying, "emergency_contact_number" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "work_id" integer, "last_work" character varying, "email" character varying, "RAP_code" character varying, "cellphone" integer, "bank_account" integer, "contract_type" character varying, "gender" character varying, "employee_status" boolean, "supression_motive" character varying, "supression_date" timestamp, "identity_number" character varying, "position_id" integer) 
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_employees_on_position_id" ON "employees"  ("position_id")[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "habilities" ("id" serial primary key, "hability" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "employee_id" integer) 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_habilities_on_employee_id" ON "habilities"  ("employee_id")[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "positions" ("id" serial primary key, "name_position" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "work_structure_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_positions_on_work_structure_id" ON "positions"  ("work_structure_id")[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying, "name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "work_exps" ("id" serial primary key, "company_name" character varying, "year_start" timestamp, "year_end" timestamp, "position" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "employee_id" integer) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_work_exps_on_employee_id" ON "work_exps"  ("employee_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "work_structures" ("id" serial primary key, "department" character varying, "area" character varying, "sub_area" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170223010354')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170205230514')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170205230530')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170205234430')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170209013757')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170209154337')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170222225041')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170222230942')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170222231137')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170222231221')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170222231327')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170222231531')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-23 04:17:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 81ms (ActiveRecord: 3.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  app/controllers/application_controller.rb:21:in `current_user'
+  app/controllers/application_controller.rb:26:in `authenticate'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-23 04:19:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (18500.3ms)
+  Rendered partials/_sidenav.html.erb (8.4ms)
+  Rendered partials/_topnav.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 19747ms (Views: 19717.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-c27984dbd556d422bb2c55ecca62add367c016d925cae26ced4cc66b48e67123.css?body=1" for 10.0.2.2 at 2017-02-23 04:19:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-02-23 04:19:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (44.1ms)
+  Rendered users/new.html.erb within layouts/application (74.5ms)
+  Rendered partials/_sidenav.html.erb (7.5ms)
+  Rendered partials/_topnav.html.erb (1.8ms)
+  Rendered partials/_footer.html.erb (0.6ms)
+Completed 200 OK in 982ms (Views: 953.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2017-02-23 04:19:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O1MF+jSBcuLsXV5J91ramaIdhovzKiYJKD8gE4H1IOctmTh6uJXGSltu8WSbtN0l8RLNitjQp97wkVQ3780nFA==", "user"=>{"name"=>"Jonathan", "email"=>"jonathansalazar96@gmail.com", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jonathansalazar96@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (32.9ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jonathan"], ["email", "jonathansalazar96@gmail.com"], ["password_digest", "$2a$10$tbQC8bBTn7MLfAAltVdv..qW3CkVUMIzqC./jsHnPQOSq19147A0K"], ["created_at", "2017-02-23 04:19:50.744554"], ["updated_at", "2017-02-23 04:19:50.744554"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 177ms (ActiveRecord: 34.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-02-23 04:19:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (14.3ms)
+  Rendered partials/_sidenav.html.erb (10.3ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 859ms (Views: 858.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2017-02-23 04:19:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (28.8ms)
+  Rendered partials/_sidenav.html.erb (7.8ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 970ms (Views: 969.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 10.0.2.2 at 2017-02-23 04:20:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YIf1AvllBJvGAsHHQRkgrsu5TuU8Tx4QCCP8i24KQHJ2TciCdXGwM3Exbuot9ycSmLYF5Be1n8fQjYivADJHgQ==", "user"=>{"name"=>"Jonathan", "email"=>"jonathan96@unitec.edu", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jonathan96@unitec.edu' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Jonathan"], ["email", "jonathan96@unitec.edu"], ["password_digest", "$2a$10$O5HoIaKdBckMx5PRcdNcIu31WulxU4cAini6sBSWCfwZyeTGAJ3BS"], ["created_at", "2017-02-23 04:20:14.259396"], ["updated_at", "2017-02-23 04:20:14.259396"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 100ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2017-02-23 04:20:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  Rendered partials/_sidenav.html.erb (8.2ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 862ms (Views: 861.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.2.2 at 2017-02-23 04:20:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0EBYUy3jeXxlturAehHKSGN9YnrnFPJC5Pn5hlU7EnzGimXToffN1NKFRe0W/830MHIpe8zuc5U8V42iOwMVjw==", "session"=>{"email"=>"jonathansalazar96@gmail.com", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "jonathansalazar96@gmail.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 110ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-23 04:20:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (10.5ms)
+  Rendered partials/_sidenav.html.erb (8.0ms)
+  Rendered partials/_topnav.html.erb (0.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 817ms (Views: 816.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-02-23 04:20:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered home/index.html.erb within layouts/application (2844.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (30.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_topnav.html.erb (11.2ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 4301ms (Views: 4209.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:20:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (5.7ms)
+  Rendered employees/_form.html.erb (96.3ms)
+  Rendered employees/new.html.erb within layouts/application (161.1ms)
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined method `number_id' for #<Employee:0xb45aa2e4>):
+    32:   <div style="width: 790px; float: right">
+    33:     <div class="form-group">
+    34:       <%= f.label :number_id, "Numero de Cedula" %>
+    35:       <%= f.number_field :number_id, class: "form-control", placeholder: "Numero de Cedula" %>
+    36:     </div>
+    37:     <div class="form-group">
+    38:         <%= f.label :base_belong, "Base a la que pertenece" %>
+  app/views/employees/_form.html.erb:35:in `_app_views_employees__form_html_erb___702351534__631948468'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___755855274__633628778'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___755855274__633628778'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (37.9ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:20:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.6ms)
+  Rendered employees/_form.html.erb (40.1ms)
+  Rendered employees/new.html.erb within layouts/application (88.2ms)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `number_id' for #<Employee:0xb48eb250>):
+    32:   <div style="width: 790px; float: right">
+    33:     <div class="form-group">
+    34:       <%= f.label :number_id, "Numero de Cedula" %>
+    35:       <%= f.number_field :number_id, class: "form-control", placeholder: "Numero de Cedula" %>
+    36:     </div>
+    37:     <div class="form-group">
+    38:         <%= f.label :base_belong, "Base a la que pertenece" %>
+  app/views/employees/_form.html.erb:35:in `_app_views_employees__form_html_erb___702351534__632893028'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___755855274__632860128'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___755855274__632860128'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.6ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-23 04:21:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (21.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (17.0ms)
+  Rendered partials/_footer.html.erb (0.5ms)
+Completed 200 OK in 890ms (Views: 888.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:21:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (42.7ms)
+  Rendered employees/new.html.erb within layouts/application (98.8ms)
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `number_id' for #<Employee:0xaddb88c>):
+    32:   <div style="width: 790px; float: right">
+    33:     <div class="form-group">
+    34:       <%= f.label :number_id, "Numero de Cedula" %>
+    35:       <%= f.number_field :number_id, class: "form-control", placeholder: "Numero de Cedula" %>
+    36:     </div>
+    37:     <div class="form-group">
+    38:         <%= f.label :base_belong, "Base a la que pertenece" %>
+  app/views/employees/_form.html.erb:35:in `_app_views_employees__form_html_erb___702351534__631948468'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___755855274__633628778'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___755855274__633628778'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (37.1ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:21:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (40.6ms)
+  Rendered employees/new.html.erb within layouts/application (89.2ms)
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `number_id' for #<Employee:0xb26c0180>):
+    32:   <div style="width: 790px; float: right">
+    33:     <div class="form-group">
+    34:       <%= f.label :number_id, "Numero de Cedula" %>
+    35:       <%= f.number_field :number_id, class: "form-control", placeholder: "Numero de Cedula" %>
+    36:     </div>
+    37:     <div class="form-group">
+    38:         <%= f.label :base_belong, "Base a la que pertenece" %>
+  app/views/employees/_form.html.erb:35:in `_app_views_employees__form_html_erb___702351534__632893028'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___755855274__632860128'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___755855274__632860128'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.8ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:23:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (83.2ms)
+  Rendered employees/new.html.erb within layouts/application (122.6ms)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `position' for #<Employee:0xb47d05dc>
+Did you mean?  position_id):
+    56:     </div>
+    57:     <div class="form-group">
+    58:         <%= f.label :position, "Puesto" %>
+    59:         <%= f.text_field :position, class: "form-control" %>
+    60:     </div>
+    61: </div>
+    62: 
+  app/views/employees/_form.html.erb:59:in `_app_views_employees__form_html_erb___702351534__633274998'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___755855274__632860128'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___755855274__632860128'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:24:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (42.1ms)
+  Rendered employees/new.html.erb within layouts/application (87.0ms)
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `number_id' for #<Employee:0xb3532c40>):
+    93:   <div style="width: 790px; float: right">
+    94:     <div class="form-group">
+    95:       <%= f.label :number_id, "Numero de Cedula" %>
+    96:       <%= f.number_field :number_id, class: "form-control", placeholder: "Numero de Cedula" %>
+    97:     </div>
+    98:     <div class="form-group">
+    99:         <%= f.label :base_belong, "Base a la que pertenece" %>
+  app/views/employees/_form.html.erb:96:in `_app_views_employees__form_html_erb___702351534__643189088'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___755855274__632860128'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___755855274__632860128'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.8ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:24:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (3.7ms)
+  Rendered employees/new.html.erb within layouts/application (44.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (17.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (7.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 902ms (Views: 900.3ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Addavatar (20170223042620)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (64.1ms)[0m  [1mALTER TABLE "employees" ADD "avatar" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170223042620"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'educations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'employees'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'habilities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'positions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'work_exps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'work_structures'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:29:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (7.2ms)
+  Rendered employees/_form.html.erb (67.3ms)
+  Rendered employees/new.html.erb within layouts/application (134.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (17.9ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_topnav.html.erb (7.5ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+Completed 200 OK in 4017ms (Views: 3871.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:30:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (5.2ms)
+  Rendered employees/new.html.erb within layouts/application (44.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (16.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_topnav.html.erb (7.2ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 888ms (Views: 886.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:31:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (6.7ms)
+  Rendered employees/new.html.erb within layouts/application (51.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (16.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_topnav.html.erb (10.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 876ms (Views: 874.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:32:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (3.6ms)
+  Rendered employees/new.html.erb within layouts/application (43.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (16.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_topnav.html.erb (6.7ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 857ms (Views: 856.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:32:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.0ms)
+  Rendered employees/_form.html.erb (2.1ms)
+  Rendered employees/new.html.erb within layouts/application (41.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (17.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_topnav.html.erb (8.3ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 891ms (Views: 889.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-23 04:32:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mEmployee Load (0.5ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (19.9ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (11.6ms)
+  Rendered partials/_footer.html.erb (0.5ms)
+Completed 200 OK in 888ms (Views: 885.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:33:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.8ms)
+  Rendered employees/_form.html.erb (4.8ms)
+  Rendered employees/new.html.erb within layouts/application (71.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (19.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (11.0ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 979ms (Views: 977.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:36:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.2ms)
+  Rendered employees/_form.html.erb (55.4ms)
+  Rendered employees/new.html.erb within layouts/application (99.3ms)
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `radio_button_tag' for #<ActionView::Helpers::FormBuilder:0xb47b70f0>
+Did you mean?  radio_button):
+    30:                   <%= f.text_field :address, class: "form-control" %>
+    31:                 </div>
+    32:                 <div class="form-group">
+    33:                   <%= f.radio_button_tag :gender, "Hombre" %>
+    34:                   <%= f.text_field :address, class: "form-control" %>
+    35:                 </div>
+    36:                 <div class="form-group">
+  app/views/employees/_form.html.erb:33:in `_app_views_employees__form_html_erb__135776009__633492538'
+  app/views/employees/new.html.erb:31:in `block in _app_views_employees_new_html_erb___933284244__650149688'
+  app/views/employees/new.html.erb:30:in `_app_views_employees_new_html_erb___933284244__650149688'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.9ms)
+
+
+Started GET "/employees" for 10.0.2.2 at 2017-02-23 04:37:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (1.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (15.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (8.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 841ms (Views: 838.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:37:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (45.2ms)
+  Rendered employees/new.html.erb within layouts/application (105.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (17.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (9.3ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 995ms (Views: 993.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:38:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (4.6ms)
+  Rendered employees/new.html.erb within layouts/application (67.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (17.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (10.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 1004ms (Views: 999.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:39:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (5.7ms)
+  Rendered employees/new.html.erb within layouts/application (46.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (15.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (9.3ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 971ms (Views: 969.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees/new" for 10.0.2.2 at 2017-02-23 04:39:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_errors.html.erb (0.1ms)
+  Rendered employees/_form.html.erb (5.0ms)
+  Rendered employees/new.html.erb within layouts/application (42.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_sidenav.html.erb (17.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered partials/_topnav.html.erb (8.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 853ms (Views: 851.4ms | ActiveRecord: 0.3ms)

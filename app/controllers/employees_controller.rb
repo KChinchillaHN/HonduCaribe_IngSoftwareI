@@ -9,6 +9,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+    @employee.avatar = params[:file]
   end
 
   def create
