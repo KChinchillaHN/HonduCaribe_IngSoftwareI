@@ -141,7 +141,7 @@
                           <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab" style="text-align: center">
 
                             <% if @employee.educations.any? %>
-                              <table class="data table table-striped no-margin" style="text-align: center">
+                              <table class="data table table-striped no-margin" style="text-align: center; width: 80%; float: center">
                               	<thead>
                               		<tr>
                               			<th style= "text-align: center">Institucion</th>
@@ -229,8 +229,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title" id="myModalLabel">Agregar Estudio</h4>
               </div>
+              <%= form_for [@employee, @education] do |f| %>
               <div class="modal-body">
-                <%= form_for [@employee, @education] do |f| %>
                 <div class="form-group">
                   <%= f.label :school_name, "Institucion" %>
                   <%= f.text_field :school_name, class: "form-control", placeholder: "Institucion" %>
@@ -272,8 +272,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title" id="myModalLabel">Agregar Experiencia Laboral</h4>
               </div>
+              <%= form_for [@employee, @work_exp] do |f| %>
               <div class="modal-body">
-                <%= form_for [@employee, @work_exp] do |f| %>
                 <div class="form-group">
                   <%= f.label :company_name, "Institucion" %>
                   <%= f.text_field :company_name, class: "form-control", placeholder: "Lugar" %>
