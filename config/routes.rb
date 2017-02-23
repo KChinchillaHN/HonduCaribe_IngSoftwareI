@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'work_structures/new'
+
   get 'users/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
