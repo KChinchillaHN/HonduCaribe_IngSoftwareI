@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20170223010354) do
 
+<<<<<<< HEAD
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+=======
+>>>>>>> 925412116fc951fe7edc7abaadc8226f82238b2e
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
     t.datetime "year_start"
@@ -24,7 +30,11 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "employee_id"
   end
 
+<<<<<<< HEAD
+  add_index "educations", ["employee_id"], name: "index_educations_on_employee_id", using: :btree
+=======
   add_index "educations", ["employee_id"], name: "index_educations_on_employee_id"
+>>>>>>> 925412116fc951fe7edc7abaadc8226f82238b2e
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -56,7 +66,11 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "position_id"
   end
 
+<<<<<<< HEAD
+  add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
+=======
   add_index "employees", ["position_id"], name: "index_employees_on_position_id"
+>>>>>>> 925412116fc951fe7edc7abaadc8226f82238b2e
 
   create_table "habilities", force: :cascade do |t|
     t.string   "hability"
@@ -65,7 +79,11 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "employee_id"
   end
 
+<<<<<<< HEAD
+  add_index "habilities", ["employee_id"], name: "index_habilities_on_employee_id", using: :btree
+=======
   add_index "habilities", ["employee_id"], name: "index_habilities_on_employee_id"
+>>>>>>> 925412116fc951fe7edc7abaadc8226f82238b2e
 
   create_table "positions", force: :cascade do |t|
     t.text     "name_position"
@@ -74,7 +92,11 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "work_structure_id"
   end
 
+<<<<<<< HEAD
+  add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id", using: :btree
+=======
   add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id"
+>>>>>>> 925412116fc951fe7edc7abaadc8226f82238b2e
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -94,7 +116,11 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "employee_id"
   end
 
+<<<<<<< HEAD
+  add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id", using: :btree
+=======
   add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id"
+>>>>>>> 925412116fc951fe7edc7abaadc8226f82238b2e
 
   create_table "work_structures", force: :cascade do |t|
     t.string   "department"

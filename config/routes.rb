@@ -8,9 +8,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  resources :employees
+  resources :employees do
+    resources :educations
+    resources :work_exps
+    resources :habilitys
+  end
+
+  resources :work_structures
   resources :users
   get 'test', to: "employees#test"
+  get 'suprimir', to: "employees#suprimir"
 
 
   get "/login" => "sessions#new"
@@ -34,7 +41,7 @@ Rails.application.routes.draw do
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get 'sold'-
   #     end
   #   end
 

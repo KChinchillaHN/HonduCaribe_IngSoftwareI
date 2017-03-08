@@ -34,13 +34,13 @@
           <ul class="nav side-menu">
             <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="index.html">HonduCaribe</a>
+                <li><%= link_to "HonduCaribe", root_path%>
                 <% unless current_user %>
                 </li>
                 <li><a href="index2.html">Inciar Sesion</a>
                 <li>
                   <%= link_to new_user_path do %>
-                    <span class="fa fa-address-card-o"></span> 
+                    <span class="fa fa-address-card-o"></span>
                     Crear Usuario
                   <% end %>
                 </li>
@@ -52,10 +52,6 @@
             <li><a><i class="fa fa-users"></i> Empleados <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                 <li><%= link_to "Creacion de nuevo Empleado", new_employee_path%>
-                </li>
-                <li><a href="#">Moficacion de Empleados</a>
-                </li>
-                <li><a href="#">Supresion de Empleados</a>
                 </li>
                 <li><%= link_to "Listado de Empleados", employees_path%>
                 </li>
@@ -97,7 +93,7 @@
             </li>
             <li><a><i class="fa fa-sitemap"></i> Estructura Laboral <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="chartjs.html">Chart JS</a>
+                <li><%= link_to "Estructura Laboral", work_structures_path%>
                 </li>
                 <li><a href="chartjs2.html">Chart JS2</a>
                 </li>
