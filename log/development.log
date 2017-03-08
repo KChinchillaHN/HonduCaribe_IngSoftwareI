@@ -12500,3 +12500,195 @@ Processing by EmployeesController#show as HTML
   Rendered partials/_topnav.html.erb (10.3ms)
   Rendered partials/_footer.html.erb (0.1ms)
 Completed 200 OK in 817ms (Views: 811.7ms | ActiveRecord: 1.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDependants (20170308015012)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (272.5ms)[0m  [1mCREATE TABLE "dependants" ("id" serial primary key, "name" character varying, "relation" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170308015012"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to Hola (20170308020833)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (4.2ms)[0m  [1mDROP TABLE "habilities"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "work_structures" ADD "Field_code" character varying
+  [1m[36m (35.1ms)[0m  [1mCREATE TABLE "abilities" ("id" serial primary key, "ability" character varying) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "employee_abilities" ("id" serial primary key) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "position_abilities" ("id" serial primary key) [0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "employee_abilities" ADD "employee_id" integer
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_employee_abilities_on_employee_id" ON "employee_abilities"  ("employee_id")[0m
+  [1m[35m (20.8ms)[0m  ALTER TABLE "employee_abilities" ADD CONSTRAINT "fk_rails_abbd6fce05"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employee_abilities" ADD "ability_id" integer[0m
+  [1m[35m (2.4ms)[0m  CREATE  INDEX  "index_employee_abilities_on_ability_id" ON "employee_abilities"  ("ability_id")
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "employee_abilities" ADD CONSTRAINT "fk_rails_d62c025e17"
+FOREIGN KEY ("ability_id")
+  REFERENCES "abilities" ("id")
+[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "position_abilities" ADD "position_profiles_id" integer
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_position_abilities_on_position_profiles_id" ON "position_abilities"  ("position_profiles_id")[0m
+  [1m[35m (3.3ms)[0m  ALTER TABLE "position_abilities" ADD CONSTRAINT "fk_rails_c447fe9478"
+FOREIGN KEY ("position_profile_id")
+  REFERENCES "position_profiles" ("id")
+
+PG::UndefinedTable: ERROR:  relation "position_profiles" does not exist
+: ALTER TABLE "position_abilities" ADD CONSTRAINT "fk_rails_c447fe9478"
+FOREIGN KEY ("position_profile_id")
+  REFERENCES "position_profiles" ("id")
+
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Hola (20170308020833)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "habilities"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "work_structures" ADD "field_code" character varying
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "abilities" ("id" serial primary key, "ability" character varying) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "employee_abilities" ("id" serial primary key) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "position_abilities" ("id" serial primary key) [0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "employee_abilities" ADD "employee_id" integer
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_employee_abilities_on_employee_id" ON "employee_abilities"  ("employee_id")[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "employee_abilities" ADD CONSTRAINT "fk_rails_abbd6fce05"
+FOREIGN KEY ("employee_id")
+  REFERENCES "employees" ("id")
+
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employee_abilities" ADD "ability_id" integer[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_employee_abilities_on_ability_id" ON "employee_abilities"  ("ability_id")
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "employee_abilities" ADD CONSTRAINT "fk_rails_d62c025e17"
+FOREIGN KEY ("ability_id")
+  REFERENCES "abilities" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "position_abilities" ADD "position_id" integer
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_position_abilities_on_position_id" ON "position_abilities"  ("position_id")[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "position_abilities" ADD CONSTRAINT "fk_rails_0a27c762e3"
+FOREIGN KEY ("position_id")
+  REFERENCES "positions" ("id")
+
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "position_abilities" ADD "ability_id" integer[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_position_abilities_on_ability_id" ON "position_abilities"  ("ability_id")
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "position_abilities" ADD CONSTRAINT "fk_rails_af0b99ccd8"
+FOREIGN KEY ("ability_id")
+  REFERENCES "abilities" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170308020833"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'abilities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'dependants'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'educations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'employee_abilities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'employees'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'position_abilities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'positions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'work_exps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'work_structures'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
