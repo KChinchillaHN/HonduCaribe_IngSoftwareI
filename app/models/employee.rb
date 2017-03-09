@@ -8,6 +8,7 @@ class Employee < ActiveRecord::Base
 	has_many :work_exps
 	has_many :employee_abilities
 	has_many :dependants
+	has_many :fake_abilities
 	has_many :abilities, :through => :employee_abilities
 
   def self.civil_statuses
@@ -24,4 +25,8 @@ class Employee < ActiveRecord::Base
 	def self.parentesco
     ["Hijo", "Conyuge", "Hermano"]
   end
+
+	def self.habilidades
+		["Ejemplo1", "Ejemplo2", "Ejemplo3"]
+	end
 end

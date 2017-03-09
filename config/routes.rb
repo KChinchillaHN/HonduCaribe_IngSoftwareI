@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :work_exps
     resources :abilities
     resources :dependants
+    resources :fake_abilities
   end
 
   resources :abilities
