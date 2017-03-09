@@ -1,6 +1,14 @@
 class EmployeesController < ApplicationController
   def index
     @employees = Employee.all
+    query = params[:q]
+    if query
+      @employees = @employees.where("name LIKE '%#{query}%'")
+    end
+
+    if request.xhr?
+      render partial: "table", locals: {employees: @employees}, status: 200
+    end
   end
 
   def show

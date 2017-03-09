@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'trainings/new'
+
   get 'work_structures/new'
 
   get 'users/index'

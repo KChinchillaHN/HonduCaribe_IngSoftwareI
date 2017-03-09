@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308020833) do
+ActiveRecord::Schema.define(version: 20170308231906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20170308020833) do
 
   add_index "employee_abilities", ["ability_id"], name: "index_employee_abilities_on_ability_id", using: :btree
   add_index "employee_abilities", ["employee_id"], name: "index_employee_abilities_on_employee_id", using: :btree
+
+  create_table "employee_trainings", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "training_id"
+  end
+
+  add_index "employee_trainings", ["employee_id"], name: "index_employee_trainings_on_employee_id", using: :btree
+  add_index "employee_trainings", ["training_id"], name: "index_employee_trainings_on_training_id", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -90,6 +98,14 @@ ActiveRecord::Schema.define(version: 20170308020833) do
   add_index "position_abilities", ["ability_id"], name: "index_position_abilities_on_ability_id", using: :btree
   add_index "position_abilities", ["position_id"], name: "index_position_abilities_on_position_id", using: :btree
 
+  create_table "position_trainings", force: :cascade do |t|
+    t.integer "position_id"
+    t.integer "training_id"
+  end
+
+  add_index "position_trainings", ["position_id"], name: "index_position_trainings_on_position_id", using: :btree
+  add_index "position_trainings", ["training_id"], name: "index_position_trainings_on_training_id", using: :btree
+
   create_table "positions", force: :cascade do |t|
     t.text     "name_position"
     t.datetime "created_at",        null: false
@@ -98,6 +114,19 @@ ActiveRecord::Schema.define(version: 20170308020833) do
   end
 
   add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id", using: :btree
+
+  create_table "trainings", force: :cascade do |t|
+    t.string   "training_name"
+    t.boolean  "check_employee"
+    t.boolean  "check_intern"
+    t.boolean  "check_exterior"
+    t.integer  "duration"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "instructor"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -131,6 +160,10 @@ ActiveRecord::Schema.define(version: 20170308020833) do
 
   add_foreign_key "employee_abilities", "abilities"
   add_foreign_key "employee_abilities", "employees"
+  add_foreign_key "employee_trainings", "employees"
+  add_foreign_key "employee_trainings", "trainings"
   add_foreign_key "position_abilities", "abilities"
   add_foreign_key "position_abilities", "positions"
+  add_foreign_key "position_trainings", "positions"
+  add_foreign_key "position_trainings", "trainings"
 end

@@ -1,0 +1,43 @@
+<div class="x_content">
+  <br />
+  <div style="width: 48%; float: left">
+  <div class="form-group">
+    <%= f.label :training_name, "Nombre" %>
+    <%= f.text_field :training_name, class: "form-control", placeholder: "Nombre de la capacitacion" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_date, "Fecha de Inicio" %>
+    <%= f.date_field :start_date, class: "form-control", placeholder: "Duracion total en Horas" %>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Participantes</label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="field">
+    		<%= f.label "Empleados " %>
+    		<%= f.check_box :check_employee %>
+
+    		<%= f.label "Practicantes " %>
+    		<%= f.check_box :check_intern %>
+
+    		<%= f.label "Personal Externo " %>
+    		<%= f.check_box :check_exterior %>
+			</div>
+    </div>
+  </div>
+</div>
+<div style="width: 48%; float: right">
+  <div class="form-group">
+    <%= f.label :instructor, "Instrcutor" %>
+    <%= f.text_field :instructor, class: "form-control", placeholder: "Nombre del Instructor" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :duration, "Duracion" %>
+    <%= f.number_field :duration, class: "form-control", placeholder: "Duracion total en Horas" %>
+  </div>
+
+</div>
+<br>
+</div>
