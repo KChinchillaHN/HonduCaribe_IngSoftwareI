@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   resources :employees do
     resources :educations
     resources :work_exps
-    resources :habilitys
+    resources :abilities
+    resources :dependants
   end
 
+  resources :abilities
   resources :work_structures
   resources :users
   get 'test', to: "employees#test"

@@ -15,7 +15,8 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @education = @employee.educations.build
     @work_exp = @employee.work_exps.build
-    @hability =  @employee.habilitys.build
+    @ability =  @employee.abilities.build
+    @dependant =  @employee.dependants.build
   end
 
   def new

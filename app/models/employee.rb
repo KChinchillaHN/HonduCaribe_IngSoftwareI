@@ -6,7 +6,9 @@ class Employee < ActiveRecord::Base
 
 	has_many :educations
 	has_many :work_exps
-	has_many :habilitys
+	has_many :employee_abilities
+	has_many :dependants
+	has_many :abilities, :through => :employee_abilities
 
   def self.civil_statuses
     ["Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"];
@@ -18,5 +20,8 @@ class Employee < ActiveRecord::Base
 
 	def self.contracts
     ["Permanente", "Temporal" , "Practicante"]
+  end
+	def self.parentesco
+    ["Hijo", "Conyuge", "Hermano"]
   end
 end

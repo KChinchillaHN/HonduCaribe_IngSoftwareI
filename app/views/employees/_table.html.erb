@@ -10,7 +10,7 @@
   <tbody>
     <%- employees.each do |f| %>
       <tr>
-        <td><%= f.id%></td>
+        <td><%= f.work_id%></td>
         <td><%= link_to f.name, employee_path(f) %></td>
         <td></td>
         <td><%= f.base_belong %></td>

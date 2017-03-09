@@ -79,12 +79,12 @@
 
                       <!-- start skills -->
                       <h4>Habilidades</h4>
-                      <% if @employee.habilitys.any? %>
+                      <% if @employee.abilities.any? %>
                           <ul class="user_data">
-                              <%- @employee.habilitys.each do |f| %>
+                              <%- @employee.abilities.each do |f| %>
                                   <li>
                                     <p>
-                                      <%=f.hability %>
+                                      <%=f.ability %>
                                     </p>
                                   </li>
                               <%- end %>
@@ -92,7 +92,7 @@
                         <% else %>
                           <p><em>No hay Informacion.</em></p>
                         <% end %>
-                        <%= link_to new_employee_hability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addHability', class: "btn btn-success"} do %>
+                        <%= link_to new_employee_ability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addAbility', class: "btn btn-success"} do %>
                           <i class="fa fa-edit m-right-xs"></i> Anadir Habilidad
                         <% end %>
                       <!-- end of skills -->
@@ -107,7 +107,9 @@
                           </li>
                           <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Lugares de Trabajo Anteriores</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Horas</a>
+                          <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Dependientes</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Horas</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
@@ -208,7 +210,32 @@
                                 <i class="fa fa-edit m-right-xs"></i> Anadir Experiencia Laboral
                               <% end %>
                           </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab" style="text-align: center">
+                            <% if @employee.dependants.any? %>
+                              <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                              	<thead>
+                              		<tr>
+                              			<th style= "text-align: center">Nombre</th>
+                                    <th style= "text-align: center">Parentesco</th>
+                              		</tr>
+                              	</thead>
+                              	<tbody>
+                              			<%- @employee.dependants.each do |f| %>
+                              				<tr>
+                              					<td><%= f.name %></td>
+                              					<td><%= f.relation %></td>
+                              				</tr>
+                              			<%- end %>
+                              	</tbody>
+                              </table>
+                              <% else %>
+                                <p><em>No hay Informacion.</em></p>
+                              <% end %>
+                              <%= link_to new_employee_dependant_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addDependant', class: "btn btn-success"} do %>
+                                <i class="fa fa-edit m-right-xs"></i> Anadir Dependiente
+                              <% end %>
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
                             <p>Espero Funcione </p>
                           </div>
                         </div>
@@ -293,6 +320,33 @@
                 <div class="form-group">
                   <%= f.label :constancia, "Constancia" %>
                   <%= f.file_field :constancia %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <%= f.submit "Crear" , class: "btn btn-primary"%>
+              </div>
+              <%- end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addDependant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Dependiente</h4>
+              </div>
+              <%= form_for [@employee, @dependant] do |f| %>
+              <div class="modal-body">
+                <div class="form-group">
+                  <%= f.label :name, "Nombre" %>
+                  <%= f.text_field :name, class: "form-control", placeholder: "Nombre" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :relation, "Parentesco" %>
+                  <%= f.select :relation, Employee.parentesco, {}, class: "form-control"%>
                 </div>
               </div>
               <div class="modal-footer">
