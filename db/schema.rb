@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309131141) do
+ActiveRecord::Schema.define(version: 20170321200127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "abilities", force: :cascade do |t|
-    t.string "ability"
+    t.string  "ability"
+    t.integer "employee_id"
   end
 
   create_table "dependants", force: :cascade do |t|
@@ -26,6 +27,9 @@ ActiveRecord::Schema.define(version: 20170309131141) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "employee_id"
+    t.string   "email"
+    t.string   "phone"
+    t.date     "birth_at"
   end
 
   create_table "educations", force: :cascade do |t|
@@ -87,16 +91,11 @@ ActiveRecord::Schema.define(version: 20170309131141) do
     t.string   "identity_number"
     t.integer  "position_id"
     t.string   "avatar"
+    t.integer  "work_structure_id"
+    t.integer  "ability_id"
   end
 
   add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
-
-  create_table "fake_abilities", force: :cascade do |t|
-    t.string   "training_name"
-    t.integer  "employee_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
 
   create_table "position_abilities", force: :cascade do |t|
     t.integer "position_id"
@@ -156,6 +155,13 @@ ActiveRecord::Schema.define(version: 20170309131141) do
   end
 
   add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id", using: :btree
+
+  create_table "work_structure_abilities", force: :cascade do |t|
+    t.integer  "ability_id"
+    t.integer  "work_structure_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "work_structures", force: :cascade do |t|
     t.string   "department"

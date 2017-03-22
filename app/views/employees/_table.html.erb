@@ -12,7 +12,7 @@
       <tr>
         <td><%= f.work_id%></td>
         <td><%= link_to f.name, employee_path(f) %></td>
-        <td></td>
+        <td><%= WorkStructure.find(f.work_structure_id).department %></td>
         <td><%= f.base_belong %></td>
       </tr>
     <%- end %>

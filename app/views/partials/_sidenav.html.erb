@@ -59,13 +59,9 @@
             </li>
             <li><a><i class="fa fa-graduation-cap"></i> Capacitaciones <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="#">Opcion 1</a>
+                <li><%= link_to "Listado de Capacitaciones", trainings_path%>
                 </li>
-                <li><a href="#">Opcion 2</a>
-                </li>
-                <li><a href="#">Opcion 3</a>
-                </li>
-                <li><a href="#">Opcion 4</a>
+                <li><%= link_to "Creacion de nueva Capacitaciones", new_training_path%>
                 </li>
               </ul>
             </li>
@@ -95,7 +91,7 @@
               <ul class="nav child_menu" style="display: none">
                 <li><%= link_to "Estructura Laboral", work_structures_path%>
                 </li>
-                <li><a href="chartjs2.html">Chart JS2</a>
+                <li><%= link_to "Crear Habilidad", new_ability_path%>
                 </li>
                 <li><a href="morisjs.html">Moris JS</a>
                 </li>

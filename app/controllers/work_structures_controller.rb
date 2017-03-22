@@ -1,10 +1,12 @@
 class WorkStructuresController < ApplicationController
   def index
     @work_structures = WorkStructure.all
+    @id=2
   end
 
   def show
     @work_structure = WorkStructure.find(params[:id])
+    @work_ability = @work_structure.work_structure_abilities.build
   end
 
   def new

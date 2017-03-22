@@ -53,6 +53,9 @@
 
                       <ul class="list-unstyled user_data">
                         <li>
+                          <i class="fa fa-user user-profile-icon"></i> <%= WorkStructure.find(@employee.work_structure_id).department %>
+                        </li>
+                        <li>
                           <i class="fa fa-user user-profile-icon"></i> <%= @employee.gender %>
                         </li>
 
@@ -79,12 +82,12 @@
 
                       <!-- start skills -->
                       <h4>Habilidades</h4>
-                      <% if @employee.fake_abilities.any? %>
+                      <% if @employee.abilities.any? %>
                           <ul class="user_data">
-                              <%- @employee.fake_abilities.each do |f| %>
+                              <%- @employee.abilities.each do |f| %>
                                   <li>
                                     <p>
-                                      <%=f.training_name %>
+                                      <%=f.ability %>
                                     </p>
                                   </li>
                               <%- end %>
@@ -92,7 +95,7 @@
                         <% else %>
                           <p><em>No hay Informacion.</em></p>
                         <% end %>
-                        <%= link_to new_employee_fake_ability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addAbility', class: "btn btn-success"} do %>
+                        <%= link_to new_employee_ability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addAbility', class: "btn btn-success"} do %>
                           <i class="fa fa-edit m-right-xs"></i> Anadir Habilidad
                         <% end %>
                       <!-- end of skills -->
@@ -217,6 +220,9 @@
                               		<tr>
                               			<th style= "text-align: center">Nombre</th>
                                     <th style= "text-align: center">Parentesco</th>
+                                    <th style= "text-align: center">Correo</th>
+                                    <th style= "text-align: center">Telefono</th>
+                                    <th style= "text-align: center">Fecha de Nacimiento</th>
                               		</tr>
                               	</thead>
                               	<tbody>
@@ -224,6 +230,9 @@
                               				<tr>
                               					<td><%= f.name %></td>
                               					<td><%= f.relation %></td>
+                                        <td><%= f.email %></td>
+                                        <td><%= f.phone %></td>
+                                        <td><%= nice_date(f.birth_at) %></td>
                               				</tr>
                               			<%- end %>
                               	</tbody>
@@ -348,6 +357,18 @@
                   <%= f.label :relation, "Parentesco" %>
                   <%= f.select :relation, Employee.parentesco, {}, class: "form-control"%>
                 </div>
+                <div class="form-group">
+                  <%= f.label :email, "Correo" %>
+                  <%= f.email_field :email, class: "form-control", placeholder: "Correo"%>
+                </div>
+                <div class="form-group">
+                  <%= f.label :phone, "Telefono" %>
+                  <%= f.text_field :phone, class: "form-control", placeholder: "Telefono" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :birth_at, "Fecha de Nacimiento" %>
+                  <%= f.date_field :birth_at, class: "form-control", placeholder: "Fecha de Nacimiento" %>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -365,11 +386,12 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title" id="myModalLabel">Agregar Habilidad</h4>
               </div>
-              <%= form_for [@employee, @fake_ability] do |f| %>
+              <%= form_for [@employee, @employee_ability] do |f| %>
               <div class="modal-body">
+                <%= f.hidden_field :employee_id, value: @employee.id %>
                 <div class="form-group">
-                  <%= f.label :training_name, "Habilidad" %>
-                  <%= f.select :training_name, Employee.habilidades, {}, class: "form-control"%>
+                  <%= f.label :ability_id, "Puesto" %>
+                  <%= f.select(:ability_id, options_for_select(Ability.all.where().pluck(:department, :id)))%>
                 </div>
               </div>
               <div class="modal-footer">

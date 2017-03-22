@@ -1,0 +1,71 @@
+<div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3><%= @work_structure.department %></h3>
+              </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+                        <ul class="list-unstyled user_data">
+
+                            <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab" style="text-align: center">
+                              <% if @work_structure.work_structure_abilities.any? %>
+                                <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                                  <thead>
+                                    <tr>
+                                      <th style= "text-align: center">Nombre</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      <%- @work_structure.work_structure_abilities.each do |f| %>
+                                        <tr>
+                                          <td><%= f.ability %></td>
+                                        </tr>
+                                      <%- end %>
+                                  </tbody>
+                                </table>
+                                <% else %>
+                                  <p><em>No hay Informacion.</em></p>
+                                <% end %>
+                                <%= link_to new_work_structure_ability_path(@work_structure), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addDependant', class: "btn btn-success"} do %>
+                                  <i class="fa fa-edit m-right-xs"></i> Anadir Dependiente
+                                <% end %>
+                            </div>
+                          </li>
+                        </ul>
+
+
+
+
+
+                            <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
+                              <p>Espero Funcione </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

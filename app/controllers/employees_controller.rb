@@ -17,7 +17,8 @@ class EmployeesController < ApplicationController
     @work_exp = @employee.work_exps.build
     @ability =  @employee.abilities.build
     @dependant =  @employee.dependants.build
-    @fake_ability = @employee.fake_abilities.build
+    @work_structures = WorkStructure.all
+    @employee_ability = @employee.employee_abilities.build
   end
 
   def new

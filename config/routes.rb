@@ -15,11 +15,23 @@ Rails.application.routes.draw do
     resources :work_exps
     resources :abilities
     resources :dependants
-    resources :fake_abilities
+    resources :abilities
+    resources :employee_abilities
   end
 
-  resources :abilities
-  resources :work_structures
+
+  resources :trainings
+  resources :abilities do
+    resources :work_structures_abilities
+    resources :work_structures
+    resources :employees_abilities
+    resources :employees
+  end
+
+  resources :work_structures do
+    resources :work_structures_abilities
+    resources :abilities
+  end
   resources :users
   get 'test', to: "employees#test"
   get 'suprimir', to: "employees#suprimir"
