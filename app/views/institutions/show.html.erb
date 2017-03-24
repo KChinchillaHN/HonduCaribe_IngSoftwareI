@@ -2,7 +2,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        
+        <h3><%= @institution.name %> </h3>
         <h5></h5>
       </div>
     </div>
@@ -30,13 +30,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <%- @institution.instructors.each do |f| %>
-                      <tr>
-                        <td><%= f.name %></td>
-                        <td><%= f.email %></td>
-                        <td><%= f.phone %></td>
-                        <td><%= f.description %></td>
-                    <%- end %>
+                    
                 </tbody>
               </table>
               <% else %>
