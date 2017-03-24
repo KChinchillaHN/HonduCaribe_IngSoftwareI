@@ -52,7 +52,7 @@
                         <li>
                            <%= @training.start_date %> - <%= @training.end_date %>
                         </li>
-                        <% if(Institutionm.find_by_id(@training.institution_id)) %>
+                        <% if(Institution.find_by_id(@training.institution_id)) %>
                         <li>
                            <%= Institution.find_by_id(@training.institution_id).name%>
                         </li>
