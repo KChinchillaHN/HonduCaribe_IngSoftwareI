@@ -23,33 +23,24 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel" style="height:600px; ">
           <div class="x_title">
-            <h2>Listado de Capacitaciones</h2>
+            <h2>Listado de Instituciones</h2>
             <div class="clearfix"></div>
           </div>
           <div style="float: center; border-left: 500px">
             <table class="table table-hover">
               <thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
                 <tr>
-                  <th>Codigo  </th>
-                  <th>Nombre de Capacitacion</th>
-                  <th>Instructor</th>
-                  <th>Fecha de Inicio</th>
-                  <th>Duracion</th>
-                  <th>Acciones</th>
+                  <th>Nombre de Institucion</th>
+                  <th>Descripcion</th>
                 </tr>
               </thead>
               <tbody>
-                <%- @trainings.each do |f| %>
+                <%- @institutions.each do |f| %>
                   <tr>
-                    <td><%= f.id %></td>
-                    <td><%= link_to f.training_name, training_path(f) %></td>
-                    <td></td>
-                    <td><%= nice_date(f.start_date) %></td>
-                    <td><%= f.duration %></td>
+                    <td><%= link_to f.name, institution_path(f) %></td>
+                    <td><%= f.description %></td>
                     <th>
-                      <%= link_to edit_training_path(f.id, f), class: "btn btn-success" do %>
-                        <i class="fa fa-edit m-right-xs"></i> Editar
-                      <% end %>
+
 
                       <%= link_to "Eliminar", f, method: :delete, data: {confirm: "Estas Seguro?"}, class: "btn btn-danger" %>
                     </th>
@@ -58,6 +49,9 @@
                 <%- end %>
               </tbody>
             </table>
+            <%= link_to new_institution_path, class: "btn btn-success" do %>
+              <i class="fa fa-edit m-right-xs"></i> Anadir Institucion
+            <% end %>
           </div>
         </div>
       </div>

@@ -29,8 +29,8 @@
 </div>
 <div style="width: 48%; float: right">
   <div class="form-group">
-    <%= f.label :instructor, "Instrcutor" %>
-    <%= f.text_field :instructor, class: "form-control", placeholder: "Nombre del Instructor" %>
+    <%= f.label :institution_id, "Numero de Empleado" %>
+    <%= f.select(:institution_id, options_for_select(Institution.all.pluck(:name, :id)))%>
   </div>
 
   <div class="form-group">

@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   end
 
 
+  resources :institutions do
+    resources :trainings
+    resources :instructors
+  end
+
   resources :trainings do
     resources :employees
     resources :training_employees

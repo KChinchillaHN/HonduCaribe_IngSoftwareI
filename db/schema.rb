@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324004742) do
+ActiveRecord::Schema.define(version: 20170324151336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,10 +104,7 @@ ActiveRecord::Schema.define(version: 20170324004742) do
     t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "training_id"
   end
-
-  add_index "institutions", ["training_id"], name: "index_institutions_on_training_id", using: :btree
 
   create_table "instructors", force: :cascade do |t|
     t.string   "name"
@@ -162,9 +159,10 @@ ActiveRecord::Schema.define(version: 20170324004742) do
     t.integer  "duration"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "instructor"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "instructor_id"
+    t.integer  "institution_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -199,17 +197,17 @@ ActiveRecord::Schema.define(version: 20170324004742) do
     t.string   "department"
     t.string   "area"
     t.string   "sub_area"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "field_code"
     t.string   "area_code"
+    t.string   "code_department"
   end
 
   add_foreign_key "employee_abilities", "abilities"
   add_foreign_key "employee_abilities", "employees"
   add_foreign_key "employee_trainings", "employees"
   add_foreign_key "employee_trainings", "trainings"
-  add_foreign_key "institutions", "trainings"
   add_foreign_key "instructors", "institutions"
   add_foreign_key "position_abilities", "abilities"
   add_foreign_key "position_abilities", "positions"

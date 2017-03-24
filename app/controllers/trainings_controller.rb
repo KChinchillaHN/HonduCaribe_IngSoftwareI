@@ -12,11 +12,12 @@ class TrainingsController < ApplicationController
     @training = Training.new(training_params)
 
     if @training.save
-      redirect_to trainings_path
+      redirect_to @training
     else
       render :new
     end
   end
+
 
   def show
       @training = Training.find(params[:id])
