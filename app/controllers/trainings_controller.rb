@@ -1,6 +1,6 @@
 class TrainingsController < ApplicationController
   def index
-    @trainings = Training.all
+    @trainings = Training.order(:start_date)
   end
 
   def new
