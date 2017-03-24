@@ -20,47 +20,100 @@
 
     <div class="row">
 
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel" style="height:600px; ">
-          <div class="x_title">
-            <h2>Listado de Capacitaciones</h2>
-            <div class="clearfix"></div>
-          </div>
-          <div style="float: center; border-left: 500px">
-            <table class="table table-hover">
-              <thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
-                <tr>
-                  <th>Codigo  </th>
-                  <th>Nombre de Capacitacion</th>
-                  <th>Instructor</th>
-                  <th>Fecha de Inicio</th>
-                  <th>Duracion</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%- @trainingsproximos.each do |f| %>
-                  <tr>
-                    <td><%= f.id %></td>
-                    <td><%= link_to f.training_name, training_path(f) %></td>
-                    <td></td>
-                    <td><%= nice_date(f.start_date) %></td>
-                    <td><%= f.duration %></td>
-                    <th>
-                      <%= link_to edit_training_path(f.id, f), class: "btn btn-success" do %>
-                        <i class="fa fa-edit m-right-xs"></i> Editar
-                      <% end %>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Capacitaciones Pasadas</a>
+                  </li>
+                  <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Capacitaciones Futuras</a>
+                  </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
-                      <%= link_to "Eliminar", f, method: :delete, data: {confirm: "Estas Seguro?"}, class: "btn btn-danger" %>
-                    </th>
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div style="float: center; border-left: 500px">
+                      <table class="table table-hover">
+                        <thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
+                          <tr>
+                            <th>Codigo  </th>
+                            <th>Nombre de Capacitacion</th>
+                            <th>Instructor</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Duracion</th>
+                            <th>Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <%- @trainingbefore.each do |f| %>
+                            <tr>
+                              <td><%= f.id %></td>
+                              <td><%= link_to f.training_name, training_path(f) %></td>
+                              <td></td>
+                              <td><%= nice_date(f.start_date) %></td>
+                              <td><%= f.duration %></td>
+                              <th>
+                                <%= link_to edit_training_path(f.id, f), class: "btn btn-success" do %>
+                                  <i class="fa fa-edit m-right-xs"></i> Editar
+                                <% end %>
 
-                  </tr>
-                <%- end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+                                <%= link_to "Eliminar", f, method: :delete, data: {confirm: "Estas Seguro?"}, class: "btn btn-danger" %>
+                              </th>
+
+                            </tr>
+                          <%- end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab" style="text-align: center">
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div style="float: center; border-left: 500px">
+                      <table class="table table-hover">
+                        <thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
+                          <tr>
+                            <th>Codigo  </th>
+                            <th>Nombre de Capacitacion</th>
+                            <th>Instructor</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Duracion</th>
+                            <th>Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <%- @trainingafter.each do |f| %>
+                            <tr>
+                              <td><%= f.id %></td>
+                              <td><%= link_to f.training_name, training_path(f) %></td>
+                              <td></td>
+                              <td><%= nice_date(f.start_date) %></td>
+                              <td><%= f.duration %></td>
+                              <th>
+                                <%= link_to edit_training_path(f.id, f), class: "btn btn-success" do %>
+                                  <i class="fa fa-edit m-right-xs"></i> Editar
+                                <% end %>
+
+                                <%= link_to "Eliminar", f, method: :delete, data: {confirm: "Estas Seguro?"}, class: "btn btn-danger" %>
+                              </th>
+
+                            </tr>
+                          <%- end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
     </div>
   </div>
 </div>
