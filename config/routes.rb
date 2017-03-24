@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :employees do
     resources :educations
     resources :work_exps
-    resources :abilities
     resources :dependants
     resources :abilities
     resources :employee_abilities
