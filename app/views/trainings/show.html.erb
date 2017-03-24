@@ -52,9 +52,11 @@
                         <li>
                            <%= @training.start_date %> - <%= @training.end_date %>
                         </li>
+                        <% if(Institutionm.find_by_id(@training.institution_id)) %>
                         <li>
                            <%= Institution.find_by_id(@training.institution_id).name%>
                         </li>
+                        <%end%>
                         <% if(Instructor.find_by_id(@training.instructor_id)) %>
                         <li>
                            <%= Instructor.find_by_id(@training.instructor_id).name %>, <%= Instructor.find_by_id(@training.instructor_id).phone %>, <%= Instructor.find_by_id(@training.instructor_id).email %>

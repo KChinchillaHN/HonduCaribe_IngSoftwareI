@@ -52,9 +52,11 @@
                       <h3><%=@employee.name%></h3>
 
                       <ul class="list-unstyled user_data">
+                        <%if(WorkStructure.find(@employee.work_structure_id)) %>
                         <li>
                           <i class="fa fa-user user-profile-icon"></i> <%= WorkStructure.find(@employee.work_structure_id).department %>
                         </li>
+                        <%end%>
                         <li>
                           <i class="fa fa-user user-profile-icon"></i> <%= @employee.gender %>
                         </li>
@@ -98,6 +100,7 @@
                         <%= link_to new_employee_ability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addAbility', class: "btn btn-success"} do %>
                           <i class="fa fa-edit m-right-xs"></i> Anadir Habilidad
                         <% end %>
+                        <button type="button" class="btn btn-info btn-l" data-toggle="modal" data-target="#myModal">Open Modal</button>
                       <!-- end of skills -->
 
                     </div>
