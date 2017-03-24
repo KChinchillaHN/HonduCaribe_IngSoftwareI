@@ -105,7 +105,7 @@
                         <%= link_to new_employee_ability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addAbility', class: "btn btn-success"} do %>
                           <i class="fa fa-edit m-right-xs"></i> Anadir Habilidad
                         <% end %>
-                        <<%= link_to comparacion_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal', class: "btn btn-success"} do %>
+                        <<%= link_to comparacion_path(:id => @employee.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal', class: "btn btn-success"} do %>
                           <i class="fa fa-edit m-right-xs"></i> Comparacion de Puesto
                         <% end %>
                       <!-- end of skills -->
@@ -460,7 +460,44 @@
                 <h4 class="modal-title" id="myModalLabel">Comparacion Empleado - Puesto</h4>
               </div>
               <div class="modal-body">
-                
+                <% if @employee.abilities.any? %>
+                  <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                    <thead>
+                      <tr>
+                        <th style= "text-align: center">Habilidad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%- @employee.abilities.each do |f| %>
+                        <tr>
+                          <td><%=f.name%></td>
+                      <%end%>
+                    </tbody>
+                  </table>
+                  <% else %>
+                    <p><em>No hay Informacion.</em></p>
+                  <% end %>
+
+                <% if(WorkStructure.find_by_id(@employee.work_structure_id)) %>
+                  <% if WorkStructure.find_by_id(@employee.work_structure_id).abilities.any? %>
+                    <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                      <thead>
+                        <tr>
+                          <th style= "text-align: center">Habilidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%- WorkStructure.find_by_id(@employee.work_structure_id).abilities.each do |f| %>
+                          <tr>
+                            <td><%=f.name%></td>
+                        <%end%>
+                      </tbody>
+                    </table>
+
+                    <% else %>
+                      <p><em>No hay Informacion.</em></p>
+                    <% end %>
+                  <% end %>
 
             </div>
           </div>
