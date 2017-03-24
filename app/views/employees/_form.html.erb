@@ -80,6 +80,7 @@
                   <%= f.label :bank_account, "Cuenta de Banco" %>
                   <%= f.number_field :bank_account, class: "form-control", placeholder: "Cuenta de Banco" %>
                 </div>
+                  <%= f.hidden_field :employee_status, value: true %>
                 <div class="form-group">
                   <%= f.label :blood_type, "Tipo de Sangre " %>
                   <%= f.select :blood_type, Employee.bloods, {}, class: "form-control"%>
