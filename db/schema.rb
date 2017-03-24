@@ -204,14 +204,18 @@ ActiveRecord::Schema.define(version: 20170323042427) do
     t.string   "field_code"
   end
 
+  add_foreign_key "educations", "employees"
   add_foreign_key "employee_abilities", "abilities"
   add_foreign_key "employee_abilities", "employees"
   add_foreign_key "employee_trainings", "employees"
   add_foreign_key "employee_trainings", "trainings"
+  add_foreign_key "employees", "positions"
   add_foreign_key "institutions", "trainings"
   add_foreign_key "instructors", "institutions"
   add_foreign_key "position_abilities", "abilities"
   add_foreign_key "position_abilities", "positions"
   add_foreign_key "position_trainings", "positions"
   add_foreign_key "position_trainings", "trainings"
+  add_foreign_key "positions", "work_structures"
+  add_foreign_key "work_exps", "employees"
 end

@@ -31,6 +31,7 @@
             <table class="table table-hover">
               <thead style="font-size: 18px; font-family: Fjalla One, sans-serif; color: #00263D">
                 <tr>
+                  <th>Codigo Departamento</th>
                   <th>Departamento</th>
                   <th>Area</th>
                   <th>Sub-Area</th>
@@ -39,6 +40,7 @@
               <tbody>
                 <%- @work_structures.each do |f| %>
                   <tr>
+                    <td><%=  f.code_department %></td>
                     <td><%= link_to f.department, work_structure_path(f)%></td>
                     <td><%= f.area %></td>
                     <td><%= f.sub_area %></td>
