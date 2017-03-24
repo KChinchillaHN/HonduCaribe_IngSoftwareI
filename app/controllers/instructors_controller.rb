@@ -5,8 +5,8 @@ class InstructorsController < ApplicationController
  end
 
  def create
- @institution = Institution.find(params[:institution_id])
- @instructor = @institution.instructors.build(instructor_params)
+   @institution = Institution.find(params[:institution_id])
+   @instructor = @institution.instructors.build(instructor_params)
 
  if @instructor.save
    redirect_to @institution,  notice: "Se agrego con exito"
