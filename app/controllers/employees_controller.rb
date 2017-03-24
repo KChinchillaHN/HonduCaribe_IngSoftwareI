@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all
+    @employees = Employee.where("employee_status = true")
     query = params[:q]
     if query
       @employees = @employees.where("name LIKE '%#{query}%'")
