@@ -14,7 +14,7 @@
 </div>
 <div style="width: 48%; float: right">
   <div class="form-group">
-    <%= f.label :institution_id, "Numero de Empleado" %>
+    <%= f.label :institution_id, "Institucion a Cargo" %>
     <%= f.select(:institution_id, options_for_select(Institution.all.pluck(:name, :id)))%>
   </div>
 
