@@ -15,6 +15,7 @@ class InstitutionsController < ApplicationController
   else
     render :new
   end
+end
 
   def show
    @institution = Institution.find_by_id(params[:id])
