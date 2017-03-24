@@ -2,7 +2,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3><%= @institution.name %> </h3>
+        
         <h5></h5>
       </div>
     </div>
@@ -19,7 +19,29 @@
           </div>
           <div style="float: center; border-left: 500px">
             <h3>Instructores</h3>
-              
+            <% if @institution.instructors.any? %>
+              <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                <thead>
+                  <tr>
+                    <th style= "text-align: center">Nombre</th>
+                    <th style= "text-align: center">Correo</th>
+                    <th style= "text-align: center">Numero</th>
+                    <th style= "text-align: center">Descripcion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <%- @institution.instructors.each do |f| %>
+                      <tr>
+                        <td><%= f.name %></td>
+                        <td><%= f.email %></td>
+                        <td><%= f.phone %></td>
+                        <td><%= f.description %></td>
+                    <%- end %>
+                </tbody>
+              </table>
+              <% else %>
+                <p><em>No hay Informacion.</em></p>
+              <% end %>
                 <%= link_to new_institution_instructor_path(@institution), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addInstructor', class: "btn btn-success"} do %>
                   <i class="fa fa-edit m-right-xs"></i> Anadir Instructor
                 <% end %>
