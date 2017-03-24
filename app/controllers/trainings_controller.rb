@@ -1,6 +1,6 @@
 class TrainingsController < ApplicationController
   def index
-    @trainingafter = Training.where("start_date > ?",Time.now).order(:start_date)
+    @trainingafter = Training.where("start_date >= ?",Time.now).order(:start_date)
     @trainingbefore = Training.where("start_date < ?",Time.now).order(:start_date)
   end
 
