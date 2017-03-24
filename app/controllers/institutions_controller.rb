@@ -24,12 +24,6 @@ class InstitutionsController < ApplicationController
 
  def destroy
     @institution = Institution.find(params[:id])
-
-	@instructores = Instructor.where(institution_id: @institution.id)
-	@instructores.each do |inst|
-	  inst.destroy
-	end
-
 	@author.destroy
     @institution.destroy
     redirect_to root_path,  notice: "Se borro con exito companero"
