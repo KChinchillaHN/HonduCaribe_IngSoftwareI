@@ -29,7 +29,6 @@ end
     redirect_to institutions_path,  notice: "Se borro con exito companero"
   end
 
-end
 
 
 protected
