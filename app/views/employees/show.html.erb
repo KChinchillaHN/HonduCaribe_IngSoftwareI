@@ -58,7 +58,12 @@
                         </li>
                         <%end%>
                         <li>
-                          <i class="fa fa-user user-profile-icon"></i> <%= @employee.gender %>
+                          <i class="fa fa-user user-profile-icon"></i>
+                          <% if(@employee.gender.to_s == "Hombre") %>
+                            Masculino
+                          <% else %>
+                            Femenino
+                          <%end%>
                         </li>
 
                         <li><i class="fa fa-map-marker user-profile-icon"></i> <%= @employee.birth_place %>, <%= nice_date(@employee.birth_at) %>
@@ -452,7 +457,45 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title" id="myModalLabel">Comparacion Empleado - Puesto</h4>
               </div>
-              Hola
+              <% if @employee.abilities.any? %>
+                <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                  <thead>
+                    <tr>
+                      <th style= "text-align: center">Habilidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%- @employee.abilities.each do |f| %>
+                      <tr>
+                        <td><%=f.name%></td>
+                    <%end%>
+                  </tbody>
+                </table>
+
+                <% else %>
+                  <p><em>No hay Informacion.</em></p>
+                <% end %>
+                <% if(WorkStructure.find_by_id(@employee.work_structure_id)) %>
+                  <% if WorkStructure.find_by_id(@employee.work_structure_id).abilities.any? %>
+                    <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                      <thead>
+                        <tr>
+                          <th style= "text-align: center">Habilidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%- WorkStructure.find_by_id(@employee.work_structure_id).abilities.each do |f| %>
+                          <tr>
+                            <td><%=f.name%></td>
+                        <%end%>
+                      </tbody>
+                    </table>
+
+                    <% else %>
+                      <p><em>No hay Informacion.</em></p>
+                    <% end %>
+                  <% end %>
+
             </div>
           </div>
         </div>
