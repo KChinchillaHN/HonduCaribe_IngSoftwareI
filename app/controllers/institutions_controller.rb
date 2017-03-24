@@ -25,7 +25,7 @@ class InstitutionsController < ApplicationController
  def destroy
     @institution = Institution.find(params[:id])
     @institution.destroy
-    redirect_to root_path,  notice: "Se borro con exito companero"
+    redirect_to institutions_path,  notice: "Se borro con exito companero"
   end
 
 end
