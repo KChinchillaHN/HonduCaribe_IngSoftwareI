@@ -17,7 +17,7 @@ class InstitutionsController < ApplicationController
   end
 
   def show
-   @institution = Institution.find(params[:id])
+   @institution = Institution.find_by_id(params[:id])
    @instructor = @institution.instructors.build
   end
 

@@ -37,7 +37,7 @@
               <tbody>
                 <%- @institutions.each do |f| %>
                   <tr>
-                    <td><%= link_to f.name, institution_path(f) %></td>
+                    <td><%= link_to f.name, institution_path(f.id) %></td>
                     <td><%= f.description %></td>
                     <th>
                       <%= link_to "Eliminar", f, method: :delete, data: {confirm: "Estas Seguro?"}, class: "btn btn-danger" %>

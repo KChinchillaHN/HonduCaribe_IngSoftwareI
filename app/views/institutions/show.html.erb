@@ -30,7 +30,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  
+                  <%- @institution.instructors.each do |f| %>
+                    <% if(f) %>
+                      <tr>
+                        <td><%= f.name %></td>
+                        <td><%= f.email %></td>
+                        <td><%= f.phone %></td>
+                        <td><%= f.description %></td>
+                      </tr>
+                    <%end%>
+                  <%- end %>
+                </tbody>
               </table>
               <% else %>
                 <p><em>No hay Informacion.</em></p>
