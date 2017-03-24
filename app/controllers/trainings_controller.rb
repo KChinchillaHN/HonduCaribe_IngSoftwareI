@@ -1,7 +1,7 @@
 class TrainingsController < ApplicationController
   def index
-    @trainingsviejos = Training.where("start_date < ?", DateTime.today).order(:start_date)
-    @trainingsproximos = Training.where("start_date > ?", DateTime.today).order(:start_date)
+    @trainingsviejos = Training.where("start_date < ?", DateTime.now).order(:start_date)
+    @trainingsproximos = Training.where("start_date > ?", DateTime.now).order(:start_date)
   end
 
   def new
