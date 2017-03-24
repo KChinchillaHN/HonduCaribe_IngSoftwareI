@@ -458,25 +458,7 @@
                 <h4 class="modal-title" id="myModalLabel">Comparacion Empleado - Puesto</h4>
               </div>
               <div class="modal-body">
-              <% if @employee.abilities.any? %>
-                <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
-                  <thead>
-                    <tr>
-                      <th style= "text-align: center">Habilidad</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%- @employee.abilities.each do |f| %>
-                      <tr>
-                        <td><%=f.name%></td>
-                    <%end%>
-                  </tbody>
-                </table>
-
-                <% else %>
-                  <p><em>No hay Informacion.</em></p>
-                <% end %>
-                
+              
 
             </div>
           </div>
