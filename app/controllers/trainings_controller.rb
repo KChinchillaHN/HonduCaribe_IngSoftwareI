@@ -5,6 +5,7 @@ class TrainingsController < ApplicationController
 
   def new
   	@training = Training.new
+    @training_employee = @training.training_employees.build
   end
 
   def create
@@ -16,6 +17,12 @@ class TrainingsController < ApplicationController
       render :new
     end
   end
+
+  def show
+      @training = Training.find(params[:id])
+      @training_employee = @training.training_employees.build
+    end
+
 
   def edit
     @training = Training.find(params[:id])

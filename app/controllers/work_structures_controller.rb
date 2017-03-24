@@ -6,7 +6,7 @@ class WorkStructuresController < ApplicationController
 
   def show
     @work_structure = WorkStructure.find(params[:id])
-    @work_ability = @work_structure.work_structure_abilities.build
+    @work_structure_ability = @work_structure.work_structure_abilities.build
   end
 
   def new

@@ -10,6 +10,8 @@ class Employee < ActiveRecord::Base
 	has_many :employee_abilities
 	has_many :abilities, :through => :employee_abilities
 	belongs_to :work_structure
+	has_many :training_employees
+  has_many :trainings, :through => :training_employees
 
   def self.civil_statuses
     ["Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"];

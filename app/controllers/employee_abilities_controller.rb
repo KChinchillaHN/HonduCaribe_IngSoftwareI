@@ -1,13 +1,14 @@
 class EmployeeAbilitiesController < ApplicationController
   def new
-  @employee_ability = EmployeeAbility.new
+  @employee = Employee.find(params[:employee_id])
+  @employee_ability = @employee.employee_abilities.build
   end
 
   def create
-  @employee_ability = EmployeeAbility.new(employee_abilities_params)
-  @fake_ability = @employee.fake_abilities.build(fake_abilities_params)
+    @employee = Employee.find(params[:employee_id])
+    @employee_ability = @employee.employee_abilities.build(employee_abilities_params)
 
-  if @fake_ability.save
+  if @employee_ability.save
     redirect_to @employee,  notice: "Se agrego con exito"
   else
     render :new
@@ -18,6 +19,6 @@ end
 protected
 
   def employee_abilities_params
-      params.require(:fake_ability).permit!
+      params.require(:employee_ability).permit!
   end
 end

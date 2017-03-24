@@ -39,7 +39,7 @@
               <tbody>
                 <%- @work_structures.each do |f| %>
                   <tr>
-                    <td><%= f.department%></td>
+                    <td><%= link_to f.department, work_structure_path(f)%></td>
                     <td><%= f.area %></td>
                     <td><%= f.sub_area %></td>
                     <th>
@@ -67,7 +67,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         <h4 class="modal-title" id="myModalLabel">Agregar Habilidad</h4>
       </div>
-    
+
     </div>
   </div>
 </div>

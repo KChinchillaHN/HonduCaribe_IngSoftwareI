@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321200127) do
+ActiveRecord::Schema.define(version: 20170323042427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,30 @@ ActiveRecord::Schema.define(version: 20170321200127) do
 
   add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
 
+  create_table "institutions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.string   "phone"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "training_id"
+  end
+
+  add_index "institutions", ["training_id"], name: "index_institutions_on_training_id", using: :btree
+
+  create_table "instructors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.string   "phone"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "institution_id"
+  end
+
+  add_index "instructors", ["institution_id"], name: "index_instructors_on_institution_id", using: :btree
+
   create_table "position_abilities", force: :cascade do |t|
     t.integer "position_id"
     t.integer "ability_id"
@@ -121,6 +145,14 @@ ActiveRecord::Schema.define(version: 20170321200127) do
   end
 
   add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id", using: :btree
+
+  create_table "training_employees", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "training_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "asistencia"
+  end
 
   create_table "trainings", force: :cascade do |t|
     t.string   "training_name"
@@ -176,6 +208,8 @@ ActiveRecord::Schema.define(version: 20170321200127) do
   add_foreign_key "employee_abilities", "employees"
   add_foreign_key "employee_trainings", "employees"
   add_foreign_key "employee_trainings", "trainings"
+  add_foreign_key "institutions", "trainings"
+  add_foreign_key "instructors", "institutions"
   add_foreign_key "position_abilities", "abilities"
   add_foreign_key "position_abilities", "positions"
   add_foreign_key "position_trainings", "positions"

@@ -112,7 +112,7 @@
                           </li>
                           <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Dependientes</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Horas</a>
+                          <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Capacitaciones</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
@@ -245,7 +245,46 @@
                               <% end %>
                           </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
-                            <p>Espero Funcione </p>
+                            <% if @employee.trainings.any? %>
+                              <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                                <thead>
+                                  <tr>
+                                    <th style= "text-align: center">Capacitacion</th>
+                                    <th style= "text-align: center">Fecha</th>
+                                    <th style= "text-align: center">Asistencia</th>
+                                    <th>
+
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <%- @employee.trainings.each do |f| %>
+                                    <tr>
+                                      <td><%= link_to f.training_name, training_path(f) %></td>
+                                      <td><%= f.start_date %></td>
+                                      <%if TrainingEmployee.where("training_id = ? AND employee_id = ?", f.id, @employee.id).first.asistencia  %>
+                                        <td>Asistio</td>
+                                      <%else%>
+                                        <td>No Asistio</td>
+                                      <%end%>
+
+                                      <td>
+                                        <%= form_for TrainingEmployee.where("training_id = ? AND employee_id = ?", f.id, @employee.id).first, url: training_training_employee_path(f.id, TrainingEmployee.where("training_id = ? AND employee_id = ?", f.id, @employee.id).first.id) do |f| %>
+                                          <%= f.hidden_field :asistencia, value: true %>
+                                          <%= f.submit "Confirmar Asistencia", class:"btn btn-success"%>
+                                        <% end %>
+                                        <%= form_for TrainingEmployee.where("training_id = ? AND employee_id = ?", f.id, @employee.id).first, url: training_training_employee_path(f.id, TrainingEmployee.where("training_id = ? AND employee_id = ?", f.id, @employee.id).first.id) do |f| %>
+                                          <%= f.hidden_field :asistencia, value: false %>
+                                          <%= f.submit "Confirmar Inasistencia", class:"btn btn-danger"%>
+                                        <% end %>
+                                        <%end%>
+                                </tbody>
+                              </table>
+
+                              <% else %>
+                                <p><em>No hay Informacion.</em></p>
+                              <% end %>
+
                           </div>
                         </div>
                       </div>
@@ -391,7 +430,7 @@
                 <%= f.hidden_field :employee_id, value: @employee.id %>
                 <div class="form-group">
                   <%= f.label :ability_id, "Puesto" %>
-                  <%= f.select(:ability_id, options_for_select(Ability.all.where().pluck(:department, :id)))%>
+                  <%= f.select(:ability_id, options_for_select(WorkStructure.find_by_id(@employee.work_structure_id).abilities.pluck(:ability, :id)))%>
                 </div>
               </div>
               <div class="modal-footer">
