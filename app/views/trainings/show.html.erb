@@ -50,7 +50,7 @@
                            <%= @training.duration%> horas
                         </li>
                         <li>
-                           <%= @training.start_date %> - <%= @training.end_date %>
+                           <%= nice_date(@training.start_date) %>
                         </li>
                         <% if(Institution.find_by_id(@training.institution_id)) %>
                         <li>
