@@ -105,7 +105,9 @@
                         <%= link_to new_employee_ability_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addAbility', class: "btn btn-success"} do %>
                           <i class="fa fa-edit m-right-xs"></i> Anadir Habilidad
                         <% end %>
-                        <button type="button" class="btn btn-info btn-l" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                        <<%= link_to comparacion_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#myModal', class: "btn btn-success"} do %>
+                          <i class="fa fa-edit m-right-xs"></i> Comparacion de Puesto
+                        <% end %>
                       <!-- end of skills -->
 
                     </div>
@@ -458,7 +460,6 @@
                 <h4 class="modal-title" id="myModalLabel">Comparacion Empleado - Puesto</h4>
               </div>
               <div class="modal-body">
-              <% if @employee %> 
                 <% if @employee.abilities.any? %>
                   <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
                     <thead>
@@ -497,7 +498,6 @@
                       <p><em>No hay Informacion.</em></p>
                     <% end %>
                   <% end %>
-                <%end %>
 
             </div>
           </div>

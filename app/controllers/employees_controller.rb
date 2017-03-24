@@ -50,6 +50,10 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def comparacion
+    @employee = Employee.find(params[:id])
+  end
+
   def test
 
   end
