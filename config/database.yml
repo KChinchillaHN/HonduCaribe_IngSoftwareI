@@ -10,9 +10,8 @@ development:
   database: honducaribe_development
   pool: 5
   username:
-  password:
-  timeout: 5000
-  host: localhost
+  password: jonthan
+
 
 production:
   adapter: postgresql
@@ -20,9 +19,8 @@ production:
   database: honducaribe_production
   pool: 5
   username:
-  password:
+  password: jonthan
   timeout: 5000
-  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,9 +28,8 @@ production:
 test:
   adapter: postgresql
   encoding: latin1
-  database: honducribe_test
+  database: honducaribe_test
   pool: 5
   username:
-  password:
+  password: jonthan
   timeout: 5000
-  host: localhost

@@ -1,7 +1,8 @@
 class TrainingsController < ApplicationController
   def index
-    @trainingafter = Training.where("start_date >= ?",Time.now).order(:start_date)
+    @trainingplanned = Training.where("start_date >= ? AND planned = true",Time.now).order(:start_date)
     @trainingbefore = Training.where("start_date < ?",Time.now).order(:start_date)
+    @trainingnotplanned = Training.where("start_date >= ? AND planned = false",Time.now).order(:start_date)
   end
 
   def new
