@@ -41,7 +41,7 @@ class Employee < ActiveRecord::Base
 		hours["50"] = 0
 		hours["75"] = 0
 		hours["100"] = 0
-		self.hours.where(date: time_in.in_time_zone("UTC").beginning_of_day..time_out.in_time_zone("UTC").end_of_day).each do |h|
+		self.hours.where(time_in: time_in.in_time_zone("UTC").beginning_of_day..time_out.in_time_zone("UTC").end_of_day).each do |h|
 			(h.time_in.to_i .. h.time_out.to_i).step(1.hour) do |x|
 				hours["normal"] += ((h.time_in.change(hour:8)..h.time_out.change(hour:17)).cover?(Time.at(x)) ? 1 : 0)
 				hours["25"] += ((h.time_in.change(hour:17)..h.time_out.change(hour:21)).cover?(Time.at(x)) ? 1 : 0)

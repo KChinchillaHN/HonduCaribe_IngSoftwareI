@@ -30,6 +30,7 @@ class EmployeesController < ApplicationController
     @dependant =  @employee.dependants.build
     @work_structures = WorkStructure.all
     @employee_ability = @employee.employee_abilities.build
+    @hour = @employee.hours.build
   end
 
   def new
