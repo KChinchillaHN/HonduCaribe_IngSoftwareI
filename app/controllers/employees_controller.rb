@@ -1,4 +1,13 @@
 class EmployeesController < ApplicationController
+
+  def hours
+    @employees = Employee.where(employee_status: true)
+  end
+
+  def hours_create
+    
+  end
+
   def index
     @employees = Employee.where("employee_status = true")
     query = params[:q]
