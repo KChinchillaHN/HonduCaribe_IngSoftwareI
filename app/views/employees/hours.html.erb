@@ -28,7 +28,7 @@
           <%= form_for(:report, remote: true, html: {id:"date_form", class:"row"}) do |f| %>
             <div class="col-xs-6">
               <%= f.label :from, "Desde: ", class:"col-xs-2" %>
-              <%= f.date_field :to, class: "form-control", value: Date.today, class:"col-xs-10", onchange: "$('#date_form').submit();" %>
+              <%= f.date_field :from, class: "form-control", value: Date.today, class:"col-xs-10", onchange: "$('#date_form').submit();" %>
             </div>
             <div class="col-xs-6">
               <%= f.label :to, "Hasta: ", class:"col-xs-2"%>
@@ -36,8 +36,8 @@
             </div>
           <% end %>
           <div style="float: center; border-left: 500px">
-            <div class="js-employees-table">
-              <%= render partial: "hours_table", locals: { employees: @employees} %>
+            <div class="js-employees-table" id="table_div">
+              <%= render partial: "hours_table", locals: {employees: @employees, time_in: Date.today, time_out: Date.today} %>
             </div>
           </div>
         </div>

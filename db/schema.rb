@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(version: 20170510050136) do
   create_table "hours", force: :cascade do |t|
     t.integer  "employee_id"
     t.datetime "date"
-    t.time     "time_in"
-    t.time     "time_out"
+    t.datetime "time_in"
+    t.datetime "time_out"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
