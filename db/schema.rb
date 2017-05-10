@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223010354) do
+ActiveRecord::Schema.define(version: 20170503222430) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.string  "ability"
+    t.integer "employee_id"
+  end
+
+  create_table "dependants", force: :cascade do |t|
+    t.string   "name"
+    t.string   "relation"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
+    t.string   "email"
+    t.string   "phone"
+    t.date     "birth_at"
+  end
 
   create_table "educations", force: :cascade do |t|
     t.string   "school_name"
@@ -22,9 +41,26 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "employee_id"
+    t.string   "constancia"
   end
 
-  add_index "educations", ["employee_id"], name: "index_educations_on_employee_id"
+  add_index "educations", ["employee_id"], name: "index_educations_on_employee_id", using: :btree
+
+  create_table "employee_abilities", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "ability_id"
+  end
+
+  add_index "employee_abilities", ["ability_id"], name: "index_employee_abilities_on_ability_id", using: :btree
+  add_index "employee_abilities", ["employee_id"], name: "index_employee_abilities_on_employee_id", using: :btree
+
+  create_table "employee_trainings", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "training_id"
+  end
+
+  add_index "employee_trainings", ["employee_id"], name: "index_employee_trainings_on_employee_id", using: :btree
+  add_index "employee_trainings", ["training_id"], name: "index_employee_trainings_on_training_id", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -54,18 +90,49 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.datetime "supression_date"
     t.string   "identity_number"
     t.integer  "position_id"
+    t.string   "avatar"
+    t.integer  "work_structure_id"
+    t.integer  "ability_id"
   end
 
-  add_index "employees", ["position_id"], name: "index_employees_on_position_id"
+  add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
 
-  create_table "habilities", force: :cascade do |t|
-    t.string   "hability"
+  create_table "institutions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "employee_id"
   end
 
-  add_index "habilities", ["employee_id"], name: "index_habilities_on_employee_id"
+  create_table "instructors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.string   "phone"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "institution_id"
+  end
+
+  add_index "instructors", ["institution_id"], name: "index_instructors_on_institution_id", using: :btree
+
+  create_table "position_abilities", force: :cascade do |t|
+    t.integer "position_id"
+    t.integer "ability_id"
+  end
+
+  add_index "position_abilities", ["ability_id"], name: "index_position_abilities_on_ability_id", using: :btree
+  add_index "position_abilities", ["position_id"], name: "index_position_abilities_on_position_id", using: :btree
+
+  create_table "position_trainings", force: :cascade do |t|
+    t.integer "position_id"
+    t.integer "training_id"
+  end
+
+  add_index "position_trainings", ["position_id"], name: "index_position_trainings_on_position_id", using: :btree
+  add_index "position_trainings", ["training_id"], name: "index_position_trainings_on_training_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.text     "name_position"
@@ -74,7 +141,30 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.integer  "work_structure_id"
   end
 
-  add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id"
+  add_index "positions", ["work_structure_id"], name: "index_positions_on_work_structure_id", using: :btree
+
+  create_table "training_employees", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "training_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "asistencia"
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string   "training_name"
+    t.boolean  "check_employee"
+    t.boolean  "check_intern"
+    t.boolean  "check_exterior"
+    t.integer  "duration"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "instructor_id"
+    t.integer  "institution_id"
+    t.boolean  "planned"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -92,16 +182,36 @@ ActiveRecord::Schema.define(version: 20170223010354) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "employee_id"
+    t.string   "constancia"
   end
 
-  add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id"
+  add_index "work_exps", ["employee_id"], name: "index_work_exps_on_employee_id", using: :btree
+
+  create_table "work_structure_abilities", force: :cascade do |t|
+    t.integer  "ability_id"
+    t.integer  "work_structure_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "work_structures", force: :cascade do |t|
     t.string   "department"
     t.string   "area"
     t.string   "sub_area"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "field_code"
+    t.string   "area_code"
+    t.string   "code_department"
   end
 
+  add_foreign_key "employee_abilities", "abilities"
+  add_foreign_key "employee_abilities", "employees"
+  add_foreign_key "employee_trainings", "employees"
+  add_foreign_key "employee_trainings", "trainings"
+  add_foreign_key "instructors", "institutions"
+  add_foreign_key "position_abilities", "abilities"
+  add_foreign_key "position_abilities", "positions"
+  add_foreign_key "position_trainings", "positions"
+  add_foreign_key "position_trainings", "trainings"
 end
