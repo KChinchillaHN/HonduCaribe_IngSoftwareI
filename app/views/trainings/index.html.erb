@@ -52,7 +52,11 @@
                             <tr>
                               <td><%= f.id %></td>
                               <td><%= link_to f.training_name, training_path(f) %></td>
-                              <td></td>
+                              <td>
+                                <% if(Instructor.find_by(id: f.instructor_id)) %>
+                                  <%= Instructor.find(f.instructor_id).name %>
+                                <%end%>
+                              </td>
                               <td><%= nice_date(f.start_date) %></td>
                               <td><%= f.duration %></td>
                               <th>
@@ -92,7 +96,11 @@
                             <tr>
                               <td><%= f.id %></td>
                               <td><%= link_to f.training_name, training_path(f) %></td>
-                              <td></td>
+                              <td>
+                                <% if(Instructor.find_by(id: f.instructor_id)) %>
+                                  <%= Instructor.find(f.instructor_id).name %>
+                                <%end%>
+                              </td>
                               <td><%= nice_date(f.start_date) %></td>
                               <td><%= f.duration %></td>
                               <th>
@@ -132,7 +140,11 @@
                             <tr>
                               <td><%= f.id %></td>
                               <td><%= link_to f.training_name, training_path(f) %></td>
-                              <td></td>
+                              <td>
+                                <% if(Instructor.find_by(id: f.instructor_id)) %>
+                                  <%= Instructor.find(f.instructor_id).name %>
+                                <%end%>
+                              </td>
                               <td><%= nice_date(f.start_date) %></td>
                               <td><%= f.duration %></td>
                               <th>

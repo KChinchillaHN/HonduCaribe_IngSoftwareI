@@ -1,4 +1,14 @@
 class EmployeesController < ApplicationController
+
+  def hours
+    @employees = Employee.where(employee_status: true)
+
+    respond_to do |format|
+      format.html
+      format.js { render "hours", locals: {employees: Employee.where(employee_status: true), time_in: params[:report][:from], time_out: params[:report][:to]}}
+    end
+  end
+
   def index
     @employees = Employee.where("employee_status = true")
     @inactiveemployees = Employee.where("employee_status = false")

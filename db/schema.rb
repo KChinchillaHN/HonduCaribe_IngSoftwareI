@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510043831) do
+ActiveRecord::Schema.define(version: 20170510172251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,11 +97,13 @@ ActiveRecord::Schema.define(version: 20170510043831) do
 
   add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
 
-  create_table "horas", force: :cascade do |t|
+  create_table "hours", force: :cascade do |t|
     t.integer  "employee_id"
-    t.datetime "fecha"
-    t.time     "hora_entrada"
-    t.time     "hora_salida"
+    t.datetime "date"
+    t.datetime "time_in"
+    t.datetime "time_out"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "institutions", force: :cascade do |t|
@@ -217,6 +219,7 @@ ActiveRecord::Schema.define(version: 20170510043831) do
   add_foreign_key "employee_abilities", "employees"
   add_foreign_key "employee_trainings", "employees"
   add_foreign_key "employee_trainings", "trainings"
+  add_foreign_key "hours", "employees"
   add_foreign_key "instructors", "institutions"
   add_foreign_key "position_abilities", "abilities"
   add_foreign_key "position_abilities", "positions"
