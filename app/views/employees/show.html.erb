@@ -405,7 +405,7 @@
                 <%= f.hidden_field :employee_id, value: @employee.id %>
                 <div class="form-group">
                   <%= f.label :ability_id, "Puesto" %>
-                  <%= f.select(:ability_id, options_for_select(WorkStructure.find_by_id(@employee.work_structure_id).abilities.pluck(:ability, :id)))%>
+                  <%= f.select(:ability_id, options_for_select(Ability.all.pluck(:ability, :id)))%>
                 </div>
               </div>
               <div class="modal-footer">
