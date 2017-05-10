@@ -10,6 +10,7 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.where("employee_status = true")
+    @inactiveemployees = Employee.where("employee_status = false")
     query = params[:q]
     if query
       @employees = @employees.where("name LIKE '%#{query}%'")
@@ -69,6 +70,15 @@ class EmployeesController < ApplicationController
 
   def suprimir
     @employee = Employee.find(params[:id])
+  end
+
+  def reactivar
+    @employee = Employee.find(params[:id])
+    if @employee.update_column(:employee_status, true)
+      redirect_to employees_path
+    else
+      redirect_to employee_path(@employee)
+    end
   end
 
   protected

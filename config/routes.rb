@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   resources :users
   get 'test', to: "employees#test"
   get 'suprimir', to: "employees#suprimir"
+  get 'reactivar', to: "employees#reactivar"
   get 'comparacion', to: "employees#comparacion"
 
 
