@@ -1,11 +1,16 @@
 class EmployeesController < ApplicationController
 
   def hours
+    respond_to do |format|
+      format.html
+      format.js { render "hours_table", locals: {employees: Employee.}}
+    end
+
     @employees = Employee.where(employee_status: true)
   end
 
   def hours_create
-    
+
   end
 
   def index
