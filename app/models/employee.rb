@@ -31,4 +31,31 @@ class Employee < ActiveRecord::Base
 	def self.habilidades
 		["Ejemplo1", "Ejemplo2", "Ejemplo3"]
 	end
+
+
+	def self.age(dob)
+		now = Time.now.utc.to_date
+		now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+	end
+
+
+	def self.TieneHijosMenores
+
+		employees = Employee.all
+		employees.each do |e|
+			e.dependants.each do |d|
+				if age(d.birth_at) < 18
+					e.hasChildren = true
+				else
+					e.hasChildren = false
+				end
+			end
+			e.save!
+		end
+
+
+	end
+
+
+
 end

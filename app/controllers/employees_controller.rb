@@ -1,6 +1,8 @@
 class EmployeesController < ApplicationController
+
   def index
     @employees = Employee.where("employee_status = true")
+
     query = params[:q]
     if query
       @employees = @employees.where("name LIKE '%#{query}%'")
@@ -28,6 +30,7 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
+    @employee.RAP_code = @employee.identity_number
 
     if @employee.save
       redirect_to employees_path
@@ -42,6 +45,8 @@ class EmployeesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
+    @employee.RAP_code = @employee.identity_number
+
 
     if @employee.update_attributes(employee_params)
       redirect_to employees_path
@@ -60,6 +65,21 @@ class EmployeesController < ApplicationController
 
   def suprimir
     @employee = Employee.find(params[:id])
+  end
+
+  def bonoEducativo
+    Employee.TieneHijosMenores
+    @employees = Employee.where(hasChildren: true)
+
+    query = params[:q]
+    if query
+      @employees = @employees.where("name LIKE '%#{query}%'")
+    end
+
+    if request.xhr?
+      render partial: "table", locals: {employees: @employees}, status: 200
+    end
+
   end
 
   protected
