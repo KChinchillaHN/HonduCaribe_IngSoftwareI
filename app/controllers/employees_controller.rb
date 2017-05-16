@@ -79,7 +79,6 @@ class EmployeesController < ApplicationController
   end
 
   def bonoEducativo
-    Employee.TieneHijosMenores
     @employees = Employee.where(hasChildren: true)
 
   end
