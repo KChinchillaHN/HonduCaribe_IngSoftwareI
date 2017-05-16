@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
 
   def index
+    Employee.TieneHijosMenores
     @employees = Employee.where("employee_status = true")
   end
 
@@ -85,15 +86,6 @@ class EmployeesController < ApplicationController
   def bonoEducativo
     Employee.TieneHijosMenores
     @employees = Employee.where(hasChildren: true)
-
-    query = params[:q]
-    if query
-      @employees = @employees.where("name LIKE '%#{query}%'")
-    end
-
-    if request.xhr?
-      render partial: "table", locals: {employees: @employees}, status: 200
-    end
 
   end
 
