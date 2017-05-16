@@ -46,8 +46,10 @@ class Employee < ActiveRecord::Base
 		employees.each do |e|
 			if e.dependants.any?
 				e.dependants.each do |d|
-					if age(d.birth_at) < 18
-						e.hasChildren = true
+					if(d.birth_at != nil)
+						if age(d.birth_at) < 18
+							e.hasChildren = true
+						end
 					else
 						e.hasChildren = false
 					end
