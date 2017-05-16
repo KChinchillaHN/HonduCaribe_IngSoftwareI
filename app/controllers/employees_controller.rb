@@ -1,10 +1,5 @@
 class EmployeesController < ApplicationController
 
-  def index
-    Employee.TieneHijosMenores
-    @employees = Employee.where("employee_status = true")
-  end
-
   def hours
     @employees = Employee.where(employee_status: true)
 
@@ -85,7 +80,7 @@ class EmployeesController < ApplicationController
 
   def bonoEducativo
     Employee.TieneHijosMenores
-    @employees = Employee.all
+    @employees = Employee.where(hasChildren: true)
 
   end
 
