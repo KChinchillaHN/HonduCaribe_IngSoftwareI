@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510050136) do
+ActiveRecord::Schema.define(version: 20170510172251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20170510050136) do
     t.string   "avatar"
     t.integer  "work_structure_id"
     t.integer  "ability_id"
+    t.boolean  "hasChildren"
   end
 
   add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 20170510050136) do
     t.integer  "instructor_id"
     t.integer  "institution_id"
     t.boolean  "planned"
+    t.string   "category"
   end
 
   create_table "users", force: :cascade do |t|
@@ -214,18 +216,14 @@ ActiveRecord::Schema.define(version: 20170510050136) do
     t.string   "code_department"
   end
 
-  add_foreign_key "educations", "employees"
   add_foreign_key "employee_abilities", "abilities"
   add_foreign_key "employee_abilities", "employees"
   add_foreign_key "employee_trainings", "employees"
   add_foreign_key "employee_trainings", "trainings"
-  add_foreign_key "employees", "positions"
   add_foreign_key "hours", "employees"
   add_foreign_key "instructors", "institutions"
   add_foreign_key "position_abilities", "abilities"
   add_foreign_key "position_abilities", "positions"
   add_foreign_key "position_trainings", "positions"
   add_foreign_key "position_trainings", "trainings"
-  add_foreign_key "positions", "work_structures"
-  add_foreign_key "work_exps", "employees"
 end

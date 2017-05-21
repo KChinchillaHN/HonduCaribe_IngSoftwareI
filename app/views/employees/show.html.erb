@@ -128,6 +128,8 @@
                           </li>
                           <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Capacitaciones</a>
                           </li>
+                          <li role="presentation" class=""><a href="#tab_content6" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Horas</a>
+                          </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
@@ -300,6 +302,31 @@
                               <% end %>
 
                           </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content6" aria-labelledby="profile-tab" style="text-align: center">
+                            <% if @employee.hours.any? %>
+                              <table class="data table table-striped no-margin" style="text-align: center; width: 100%">
+                              	<thead>
+                              		<tr>
+                                    <th style= "text-align: center">Hora de entrada</th>
+                              			<th style= "text-align: center">Hora de salida</th>
+                              		</tr>
+                              	</thead>
+                              	<tbody>
+                              			<%- @employee.hours.each do |f| %>
+                              				<tr>
+                              					<td><%= nice_date_time(f.time_in) %></td>
+                              					<td><%= nice_date_time(f.time_out) %></td>
+                              				</tr>
+                              			<%- end %>
+                              	</tbody>
+                              </table>
+                              <% else %>
+                                <p><em>No hay Informacion.</em></p>
+                              <% end %>
+                              <%= link_to new_employee_hour_path(@employee), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addHours', class: "btn btn-success"} do %>
+                                <i class="fa fa-edit m-right-xs"></i> Anadir Horas
+                              <% end %>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -405,8 +432,74 @@
                 <%= f.hidden_field :employee_id, value: @employee.id %>
                 <div class="form-group">
                   <%= f.label :ability_id, "Puesto" %>
-                  <%= f.select(:ability_id, options_for_select(WorkStructure.find_by_id(@employee.work_structure_id).abilities.pluck(:ability, :id)))%>
+                  <%= f.select(:ability_id, options_for_select(Ability.all.pluck(:ability, :id)))%>
                 </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <%= f.submit "Crear" , class: "btn btn-primary"%>
+              </div>
+              <%- end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addDependant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Dependiente</h4>
+              </div>
+              <%= form_for [@employee, @dependant] do |f| %>
+              <div class="modal-body">
+                <div class="form-group">
+                  <%= f.label :name, "Nombre" %>
+                  <%= f.text_field :name, class: "form-control", placeholder: "Nombre" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :relation, "Parentesco" %>
+                  <%= f.select :relation, Employee.parentesco, {}, class: "form-control"%>
+                </div>
+                <div class="form-group">
+                  <%= f.label :email, "Correo" %>
+                  <%= f.email_field :email, class: "form-control", placeholder: "Correo"%>
+                </div>
+                <div class="form-group">
+                  <%= f.label :phone, "Telefono" %>
+                  <%= f.text_field :phone, class: "form-control", placeholder: "Telefono" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :birth_at, "Fecha de Nacimiento" %>
+                  <%= f.date_field :birth_at, class: "form-control", placeholder: "Fecha de Nacimiento" %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <%= f.submit "Crear" , class: "btn btn-primary"%>
+              </div>
+              <%- end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="addHours" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Habilidad</h4>
+              </div>
+              <%= form_for [@employee, @hour] do |f| %>
+              <div class="modal-body">
+                <div class="form-group">
+                <%= label :start_date, "Fecha y Hora de Entrada" %>
+                <%= datetime_local_field(:hour, :time_in) %>
+              </div>
+              <div class="form-group">
+              <%= label :start_date, "Fecha y Hora de Salida" %>
+              <%= datetime_local_field(:hour, :time_out) %>
+              </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

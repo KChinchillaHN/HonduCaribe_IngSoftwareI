@@ -34,6 +34,7 @@
                     <tr>
                       <th style= "text-align: center">Codigo Empleado</th>
                       <th style= "text-align: center">Nombre</th>
+                      <th style= "text-align: center">Salario</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -41,6 +42,7 @@
                         <tr>
                           <td><%= f.work_id %></td>
                           <td><%= link_to f.name, employee_path(f) %></td>
+                          <td>L. <%= f.salary %></td>
                         </tr>
                       <%- end %>
                   </tbody>

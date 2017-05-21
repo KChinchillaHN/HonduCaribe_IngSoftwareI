@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :employee_abilities
     resources :trainings
     resources :training_employees
+    resources :hours
   end
 
 
@@ -55,8 +56,7 @@ Rails.application.routes.draw do
   get 'reactivar', to: "employees#reactivar"
   get 'comparacion', to: "employees#comparacion"
 
-
-
+  get "/bonoEducativo" => "employees#bonoEducativo"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"

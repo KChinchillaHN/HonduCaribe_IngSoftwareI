@@ -50,7 +50,6 @@ Temporary Items
 *.cache
 *.lock
 *.scss
-Gemfile
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
