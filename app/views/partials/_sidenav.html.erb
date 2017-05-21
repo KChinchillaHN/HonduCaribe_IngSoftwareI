@@ -4,7 +4,7 @@
     <div class="left_col scroll-view">
 
       <div class="navbar nav_title" style="border: 0;">
-        <a href="index.html" class="site_title"><%= image_tag "gota.png", style: "width: 48px"%> HonduCaribe </a>
+        <a class="site_title"><%= image_tag "gota.png", style: "width: 48px"%> HonduCaribe </a>
       </div>
       <div class="clearfix"></div>
 
@@ -34,13 +34,12 @@
           <ul class="nav side-menu">
             <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="index.html">HonduCaribe</a>
+                <li><%= link_to "HonduCaribe", root_path%>
                 <% unless current_user %>
                 </li>
-                <li><a href="index2.html">Inciar Sesion</a>
-                <li>
+                <li><%= link_to "Login", login_path %><li>
                   <%= link_to new_user_path do %>
-                    <span class="fa fa-address-card-o"></span> 
+                    <span class="fa fa-address-card-o"></span>
                     Crear Usuario
                   <% end %>
                 </li>
@@ -53,73 +52,26 @@
               <ul class="nav child_menu" style="display: none">
                 <li><%= link_to "Creacion de nuevo Empleado", new_employee_path%>
                 </li>
-                <li><a href="#">Moficacion de Empleados</a>
-                </li>
-                <li><a href="#">Supresion de Empleados</a>
-                </li>
                 <li><%= link_to "Listado de Empleados", employees_path%>
                 </li>
               </ul>
             </li>
             <li><a><i class="fa fa-graduation-cap"></i> Capacitaciones <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="#">Opcion 1</a>
+                <li><%= link_to "Listado de Capacitaciones", trainings_path%>
                 </li>
-                <li><a href="#">Opcion 2</a>
+                <li><%= link_to "Creacion de nueva Capacitaciones", new_training_path%>
                 </li>
-                <li><a href="#">Opcion 3</a>
-                </li>
-                <li><a href="#">Opcion 4</a>
-                </li>
-              </ul>
-            </li>
-            <li><a><i class="fa fa-calendar-check-o"></i> Incapacidades, Vacaciones y Permisos <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><a href="tables.html">Tables</a>
-                </li>
-                <li><a href="tables_dynamic.html">Table Dynamic</a>
-                </li>
-              </ul>
-            </li>
-            <li><a><i class="fa fa-money"></i> Pagos <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><a href="chartjs.html">Chart JS</a>
-                </li>
-                <li><a href="chartjs2.html">Chart JS2</a>
-                </li>
-                <li><a href="morisjs.html">Moris JS</a>
-                </li>
-                <li><a href="echarts.html">ECharts </a>
-                </li>
-                <li><a href="other_charts.html">Other Charts </a>
+                <li><%= link_to "Instituciones", institutions_path%>
                 </li>
               </ul>
             </li>
             <li><a><i class="fa fa-sitemap"></i> Estructura Laboral <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="chartjs.html">Chart JS</a>
+                <li><%= link_to "Estructura Laboral", work_structures_path%>
                 </li>
-                <li><a href="chartjs2.html">Chart JS2</a>
+                <li><%= link_to "Crear Habilidad", new_ability_path%>
                 </li>
-                <li><a href="morisjs.html">Moris JS</a>
-                </li>
-                <li><a href="echarts.html">ECharts </a>
-                </li>
-                <li><a href="other_charts.html">Other Charts </a>
-                </li>
-              </ul>
-            </li>
-            <li><a><i class="fa fa-times"></i> Amonestaciones <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><a href="chartjs.html">Chart JS</a>
-                </li>
-                <li><a href="chartjs2.html">Chart JS2</a>
-                </li>
-                <li><a href="morisjs.html">Moris JS</a>
-                </li>
-                <li><a href="echarts.html">ECharts </a>
-                </li>
-                <li><a href="other_charts.html">Other Charts </a>
                 </li>
               </ul>
             </li>
@@ -128,48 +80,10 @@
         <div class="menu_section">
           <h3>Reportes</h3>
           <ul class="nav side-menu">
-            <li><a><i class="fa fa-line-chart"></i> Indicadores <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><a href="e_commerce.html">E-commerce</a>
-                </li>
-                <li><a href="projects.html">Projects</a>
-                </li>
-                <li><a href="project_detail.html">Project Detail</a>
-                </li>
-                <li><a href="contacts.html">Contacts</a>
-                </li>
-                <li><a href="profile.html">Profile</a>
-                </li>
-              </ul>
-            </li>
-            <li><a><i class="fa fa-check-square"></i> Escenarios <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><a href="page_404.html">404 Error</a>
-                </li>
-                <li><a href="page_500.html">500 Error</a>
-                </li>
-                <li><a href="plain_page.html">Plain Page</a>
-                </li>
-                <li><a href="login.html">Login Page</a>
-                </li>
-                <li><a href="pricing_tables.html">Pricing Tables</a>
-                </li>
-              </ul>
-            </li>
             <li><a><i class="fa fa-users"></i> Reporte de Empleados <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="#level1_1">Level One</a>
-                <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li class="sub_menu"><a href="level2.html">Level Two</a>
-                    </li>
-                    <li><a href="#level2_1">Level Two</a>
-                    </li>
-                    <li><a href="#level2_2">Level Two</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#level1_2">Level One</a>
+                  <li><%= link_to "Bono Educativo", bonoEducativo_path %> </li>
+                <li><%= link_to "Reporte de Horas", hours_path%>
                 </li>
               </ul>
             </li>

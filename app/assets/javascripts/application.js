@@ -41,5 +41,4 @@
 
 //= require flash.js
 
-
-
+//= require misc
