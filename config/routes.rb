@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get 'users/index'
 
+  get 'hours' => 'employees#hours'
+  post 'hours' => 'employees#hours'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
     resources :employee_abilities
     resources :trainings
     resources :training_employees
+    resources :hours
   end
 
 
@@ -49,10 +53,10 @@ Rails.application.routes.draw do
   resources :users
   get 'test', to: "employees#test"
   get 'suprimir', to: "employees#suprimir"
+  get 'reactivar', to: "employees#reactivar"
   get 'comparacion', to: "employees#comparacion"
 
-
-
+  get "/bonoEducativo" => "employees#bonoEducativo"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"

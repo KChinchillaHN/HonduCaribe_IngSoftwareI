@@ -1,6 +1,18 @@
 class EmployeesController < ApplicationController
+
+  def hours
+    @employees = Employee.where(employee_status: true)
+
+    respond_to do |format|
+      format.html
+      format.js { render "hours", locals: {employees: Employee.where(employee_status: true), time_in: params[:report][:from], time_out: params[:report][:to]}}
+    end
+
+  end
+
   def index
     @employees = Employee.where("employee_status = true")
+    @inactiveemployees = Employee.where("employee_status = false")
     query = params[:q]
     if query
       @employees = @employees.where("name LIKE '%#{query}%'")
@@ -19,6 +31,7 @@ class EmployeesController < ApplicationController
     @dependant =  @employee.dependants.build
     @work_structures = WorkStructure.all
     @employee_ability = @employee.employee_abilities.build
+    @hour = @employee.hours.build
   end
 
   def new
@@ -28,6 +41,7 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
+    @employee.RAP_code = @employee.identity_number
 
     if @employee.save
       redirect_to employees_path
@@ -42,6 +56,8 @@ class EmployeesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
+    @employee.RAP_code = @employee.identity_number
+
 
     if @employee.update_attributes(employee_params)
       redirect_to employees_path
@@ -60,6 +76,20 @@ class EmployeesController < ApplicationController
 
   def suprimir
     @employee = Employee.find(params[:id])
+  end
+
+  def bonoEducativo
+    @employees = Employee.all
+
+  end
+
+  def reactivar
+    @employee = Employee.find(params[:id])
+    if @employee.update_column(:employee_status, true)
+      redirect_to employees_path
+    else
+      redirect_to employee_path(@employee)
+    end
   end
 
   protected
