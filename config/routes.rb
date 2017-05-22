@@ -1,18 +1,63 @@
 Rails.application.routes.draw do
+  get 'trainings/new'
+
   get 'work_structures/new'
 
   get 'users/index'
+
+  get 'hours' => 'employees#hours'
+  post 'hours' => 'employees#hours'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  resources :employees
+  resources :employees do
+    resources :educations
+    resources :work_exps
+    resources :dependants
+    resources :abilities
+    resources :employee_abilities
+    resources :trainings
+    resources :training_employees
+    resources :hours
+  end
+
+
+  resources :institutions do
+    resources :trainings
+    resources :instructors
+  end
+
+  resources :trainings do
+    resources :employees
+    resources :training_employees
+  end
+
+  resources :training_employees
+
+  resources :work_structures do
+    resources :work_structure_abilities
+    resources :abilities
+  end
+
+  resources :abilities do
+    resources :work_structure_abilities
+    resources :work_structures
+    resources :employees_abilities
+    resources :employees
+  end
+
+
   resources :users
   get 'test', to: "employees#test"
+  get 'suprimir', to: "employees#suprimir"
+  get 'reactivar', to: "employees#reactivar"
+  get 'comparacion', to: "employees#comparacion"
+  post '/employees/:employee_id', to: "employees#hours_show"
 
-
+  get "/bonoEducativo" => "employees#bonoEducativo"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
@@ -34,7 +79,7 @@ Rails.application.routes.draw do
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get 'sold'-
   #     end
   #   end
 
